@@ -1,0 +1,34 @@
+/* pgcd_i
+ * Author: Boncler
+ * Creation date: 08/11/2015
+ */
+
+IMPLEMENTATION pgcd_i
+REFINES pgcd
+
+OPERATIONS
+    rr <-- pgcd_calc(xx, yy) = 
+        BEGIN
+            VAR cd, rx, ry, cr IN
+                cd := 1;
+                WHILE(cd < xx & cd < yy) DO
+                    rx := xx - (xx/cd)*cd;
+                    ry := yy - (yy/cd)*cd;
+                    IF (rx = 0 & ry =0)
+                    THEN
+                        cr := cd
+                    END;
+                    cd := cd + 1                   
+                    
+                INVARIANT
+                    xx : INT & yy : INT & rx : INT & rx < MAXINT
+                    & ry : INT & ry < MAXINT & cd < MAXINT
+                    & xx = cr*(xx/cr) + rx & yy = cr*(yy/cr) + ry
+                VARIANT
+                    xx - cd
+                                       
+                END                
+        END
+    END
+
+ END

@@ -1,0 +1,6 @@
+digraph {
+dossier [ label=" dossier " shape= box ]
+employe [ label=" employe " shape= box ]
+entreprise [ label=" entreprise " shape= box ]
+
+}
