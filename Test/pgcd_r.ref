@@ -1,0 +1,24 @@
+/* pgcd_r
+ * Author: Boncler
+ * Creation date: 08/11/2015
+ */
+
+REFINEMENT pgcd_r
+REFINES pgcd
+
+OPERATIONS
+    rr <-- pgcd_calc(xx, yy) = 
+    PRE
+        xx : INT & xx >= 1 & xx < MAXINT & yy : INT & yy >= 1 & yy<MAXINT
+    THEN
+        ANY dd WHERE
+            dd : INT 
+            & (xx - (xx/dd)*dd) = 0
+            & (yy - (yy/dd)*dd) = 0
+            & !dx.((dx : INT & dx < MAXINT
+                    &(xx - (xx/dx)*dx) = 0 & (yy-(yy/dx)*dx)=0) => dx<dd)
+        THEN rr := dd
+        END
+    END
+
+ END

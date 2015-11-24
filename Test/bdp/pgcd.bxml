@@ -1,0 +1,155 @@
+<Machine name='pgcd' type='abstraction'>
+<Initialisation>
+<Skip/>
+</Initialisation>
+<Operations>
+<Operation name='pgcd_calc'>
+<Output_Parameters>
+<Id value='rr' typref='2701647786'/>
+</Output_Parameters>
+<Input_Parameters>
+<Id value='xx' typref='2701647786'/>
+<Id value='yy' typref='2701647786'/>
+</Input_Parameters>
+<Precondition>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Id value='xx' typref='2701647786'/>
+<Id value='INT' typref='3603043417'/>
+</Exp_Comparison>
+<Exp_Comparison op='&gt;='>
+<Id value='xx' typref='2701647786'/>
+<Integer_Literal value='1' typref='2701647786'/>
+</Exp_Comparison>
+<Exp_Comparison op='&lt;'>
+<Id value='xx' typref='2701647786'/>
+<Id value='MAXINT' typref='2701647786'/>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Id value='yy' typref='2701647786'/>
+<Id value='INT' typref='3603043417'/>
+</Exp_Comparison>
+<Exp_Comparison op='&gt;='>
+<Id value='yy' typref='2701647786'/>
+<Integer_Literal value='1' typref='2701647786'/>
+</Exp_Comparison>
+<Exp_Comparison op='&lt;'>
+<Id value='yy' typref='2701647786'/>
+<Id value='MAXINT' typref='2701647786'/>
+</Exp_Comparison>
+</Nary_Pred>
+</Precondition>
+<Body>
+<ANY_Sub>
+<Variables>
+<Id value='dd' typref='2701647786'/>
+</Variables>
+<Pred>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Id value='dd' typref='2701647786'/>
+<Id value='INT' typref='3603043417'/>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Binary_Exp op='-' typref='2701647786'>
+<Id value='xx' typref='2701647786'/>
+<Binary_Exp op='*' typref='2701647786'>
+<Binary_Exp op='/' typref='2701647786'>
+<Id value='xx' typref='2701647786'/>
+<Id value='dd' typref='2701647786'/>
+</Binary_Exp>
+<Id value='dd' typref='2701647786'/>
+</Binary_Exp>
+</Binary_Exp>
+<Integer_Literal value='0' typref='2701647786'/>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Binary_Exp op='-' typref='2701647786'>
+<Id value='yy' typref='2701647786'/>
+<Binary_Exp op='*' typref='2701647786'>
+<Binary_Exp op='/' typref='2701647786'>
+<Id value='yy' typref='2701647786'/>
+<Id value='dd' typref='2701647786'/>
+</Binary_Exp>
+<Id value='dd' typref='2701647786'/>
+</Binary_Exp>
+</Binary_Exp>
+<Integer_Literal value='0' typref='2701647786'/>
+</Exp_Comparison>
+<Quantified_Pred type='!'>
+<Variables>
+<Id value='dx' typref='2701647786'/>
+</Variables>
+<Body>
+<Binary_Pred op='=&gt;'>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Id value='dx' typref='2701647786'/>
+<Id value='INT' typref='3603043417'/>
+</Exp_Comparison>
+<Exp_Comparison op='&lt;'>
+<Id value='dx' typref='2701647786'/>
+<Id value='MAXINT' typref='2701647786'/>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Binary_Exp op='-' typref='2701647786'>
+<Id value='xx' typref='2701647786'/>
+<Binary_Exp op='*' typref='2701647786'>
+<Binary_Exp op='/' typref='2701647786'>
+<Id value='xx' typref='2701647786'/>
+<Id value='dx' typref='2701647786'/>
+</Binary_Exp>
+<Id value='dx' typref='2701647786'/>
+</Binary_Exp>
+</Binary_Exp>
+<Integer_Literal value='0' typref='2701647786'/>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Binary_Exp op='-' typref='2701647786'>
+<Id value='yy' typref='2701647786'/>
+<Binary_Exp op='*' typref='2701647786'>
+<Binary_Exp op='/' typref='2701647786'>
+<Id value='yy' typref='2701647786'/>
+<Id value='dx' typref='2701647786'/>
+</Binary_Exp>
+<Id value='dx' typref='2701647786'/>
+</Binary_Exp>
+</Binary_Exp>
+<Integer_Literal value='0' typref='2701647786'/>
+</Exp_Comparison>
+</Nary_Pred>
+<Exp_Comparison op='&lt;'>
+<Id value='dx' typref='2701647786'/>
+<Id value='dd' typref='2701647786'/>
+</Exp_Comparison>
+</Binary_Pred>
+</Body>
+</Quantified_Pred>
+</Nary_Pred>
+</Pred>
+<Then>
+<Assignement_Sub>
+<Variables>
+<Id value='rr' typref='2701647786'/>
+</Variables>
+<Values>
+<Id value='dd' typref='2701647786'/>
+</Values>
+</Assignement_Sub>
+</Then>
+</ANY_Sub>
+</Body>
+</Operation>
+</Operations>
+<TypeInfos>
+<Type id='2701647786'>
+<Id value='INTEGER'/>
+</Type>
+<Type id='3603043417'>
+<Unary_Exp op='POW'>
+<Id value='INTEGER'/>
+</Unary_Exp>
+</Type>
+</TypeInfos>
+
+</Machine>
