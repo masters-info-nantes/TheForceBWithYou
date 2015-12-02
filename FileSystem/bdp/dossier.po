@@ -1,0 +1,125 @@
+THEORY ProofList IS
+_f(1) & _f(2) & _f(24) & _f(42) & WellDefinedness_modifierEtatTraitement.6,(_f(66) => _f(79));
+_f(1) & _f(2) & _f(24) & _f(42) & WellDefinedness_modifierEtatTraitement.5,(_f(66) => _f(78));
+_f(1) & _f(2) & _f(24) & _f(42) & WellDefinedness_modifierEtatTraitement.4,(_f(66) => _f(74));
+_f(1) & _f(2) & _f(24) & _f(42) & WellDefinedness_modifierEtatTraitement.3,(_f(66) => _f(73));
+_f(1) & _f(2) & _f(24) & _f(42) & WellDefinedness_modifierEtatTraitement.2,(_f(66) => _f(76));
+_f(1) & _f(2) & _f(24) & _f(42) & WellDefinedness_modifierEtatTraitement.1,(_f(66) => _f(75));
+_f(1) & _f(2) & _f(24) & _f(33) & WellDefinedness_tracerOperation.2,(_f(66) => _f(76));
+_f(1) & _f(2) & _f(24) & _f(33) & WellDefinedness_tracerOperation.1,(_f(66) => _f(75));
+_f(1) & _f(2) & _f(24) & WellDefinedness_Precondition_tracerOperation.2,(_f(72) & _f(68) & _f(71) & _f(70) & _f(69) & _f(66) => _f(74));
+_f(1) & _f(2) & _f(24) & WellDefinedness_Precondition_tracerOperation.1,(_f(72) & _f(68) & _f(71) & _f(70) & _f(69) & _f(66) => _f(73));
+_f(1) & _f(2) & WellDefinednessInvariant.1,(_f(28) & _f(29) & _f(65) & _f(64) & _f(63) & _f(62) & _f(59) & _f(60) & _f(61) & _f(56) & _f(57) & _f(58) & _f(55) & _f(52) & _f(53) & _f(54) & _f(49) & _f(50) & _f(51) & _f(46) & _f(47) & _f(48) & _f(66) => _f(67));
+_f(1) & _f(2) & _f(24) & _f(42) & modifierEtatTraitement.3,(_f(3) & _f(20) => _f(43));
+_f(1) & _f(2) & _f(24) & _f(42) & modifierEtatTraitement.2,(_f(3) & _f(6) => _f(29));
+_f(1) & _f(2) & _f(24) & _f(42) & modifierEtatTraitement.1,(_f(3) & _f(4) => _f(28));
+_f(1) & _f(2) & _f(24) & _f(33) & tracerOperation.8,(_f(3) & _f(40) => _f(41));
+_f(1) & _f(2) & _f(24) & _f(33) & tracerOperation.7,(_f(3) & _f(22) => _f(39));
+_f(1) & _f(2) & _f(24) & _f(33) & tracerOperation.6,(_f(3) & _f(20) => _f(38));
+_f(1) & _f(2) & _f(24) & _f(33) & tracerOperation.5,(_f(3) & _f(36) => _f(37));
+_f(1) & _f(2) & _f(24) & _f(33) & tracerOperation.4,(_f(3) & _f(18) => _f(35));
+_f(1) & _f(2) & _f(24) & _f(33) & tracerOperation.3,(_f(3) & _f(16) => _f(34));
+_f(1) & _f(2) & _f(24) & _f(33) & tracerOperation.2,(_f(3) & _f(6) => _f(29));
+_f(1) & _f(2) & _f(24) & _f(33) & tracerOperation.1,(_f(3) & _f(4) => _f(28));
+_f(1) & _f(2) & _f(24) & _f(25) & creerDossier.4,(_f(26) & _f(27) & _f(3) & _f(31) => _f(32));
+_f(1) & _f(2) & _f(24) & _f(25) & creerDossier.3,(_f(26) & _f(27) & _f(3) & _f(14) => _f(30));
+_f(1) & _f(2) & _f(24) & _f(25) & creerDossier.2,(_f(26) & _f(27) & _f(3) & _f(6) => _f(29));
+_f(1) & _f(2) & _f(24) & _f(25) & creerDossier.1,(_f(26) & _f(27) & _f(3) & _f(4) => _f(28));
+_f(1) & _f(2) & Initialisation.10,(_f(3) & _f(22) => _f(23));
+_f(1) & _f(2) & Initialisation.9,(_f(3) & _f(20) => _f(21));
+_f(1) & _f(2) & Initialisation.8,(_f(3) & _f(18) => _f(19));
+_f(1) & _f(2) & Initialisation.7,(_f(3) & _f(16) => _f(17));
+_f(1) & _f(2) & Initialisation.6,(_f(3) & _f(14) => _f(15));
+_f(1) & _f(2) & Initialisation.5,(_f(3) & _f(12) => _f(13));
+_f(1) & _f(2) & Initialisation.4,(_f(3) & _f(10) => _f(11));
+_f(1) & _f(2) & Initialisation.3,(_f(3) & _f(8) => _f(9));
+_f(1) & _f(2) & Initialisation.2,(_f(3) & _f(6) => _f(7));
+_f(1) & _f(2) & Initialisation.1,(_f(3) & _f(4) => _f(5))
+END
+&
+THEORY Formulas IS
+((NAT) = (((0) .. (2147483647)))) & ((INT) = (((-2147483647) .. (2147483647))));
+EMPLOYE: FIN(INTEGER) & not(EMPLOYE = {}) & ((1..3)*{LIBELLE_TRAITEMENT}): FIN(NATURAL*{LIBELLE_TRAITEMENT}) & not(((1..3)*{LIBELLE_TRAITEMENT}) = {}) & ((1..3)*{ETAT_TRAITEMENT}): FIN(NATURAL*{ETAT_TRAITEMENT}) & not(((1..3)*{ETAT_TRAITEMENT}) = {}) & ((max_op) : (((1) .. (5))));
+"Invariant is preserved";
+"Check invariant lib_traitement : POW( LIBELLE_TRAITEMENT)";
+{} : POW( ((1..3)*{LIBELLE_TRAITEMENT}));
+"Check invariant etat_traitement : POW( ETAT_TRAITEMENT)";
+{} : POW( ((1..3)*{ETAT_TRAITEMENT}));
+"Check invariant dossiers : POW( NAT)";
+{} : POW( NAT);
+"Check invariant ((nb_dossier) : (INT))";
+((0) : (INT));
+"Check invariant employes : POW( EMPLOYE)";
+{} : POW( EMPLOYE);
+"Check invariant ((proprietaire) : (((dossiers) --> (employes))))";
+(({}) : ((({}) --> ({}))));
+"Check invariant ((modification_etat) : ((((dossiers * dates)) +-> (etat_traitement))))";
+(({}) : (((({} * {})) +-> ({}))));
+"Check invariant ((traitement_lib) : ((((dates * employes)) --> (lib_traitement))))";
+(({}) : (((({} * {})) --> ({}))));
+"Check invariant ((historique) : (((dossiers) --> ((((dates * employes)) +-> ((lib_traitement * etat_traitement)))))))";
+(({}) : ((({}) --> (((({} * {})) +-> (({} * {})))))));
+"Check invariant (card(modification_etat) <= max_op)";
+(card({}) <= max_op);
+lib_traitement : POW( LIBELLE_TRAITEMENT) & etat_traitement : POW( ETAT_TRAITEMENT) & dossiers : POW( NAT) & ((nb_dossier) : (INT)) & employes : POW( EMPLOYE) & dates : POW( NAT) & proprietaire : dossiers +-> employes & dom(proprietaire) = dossiers & ((proprietaire) : (((dossiers) --> (employes)))) & date_creation : dossiers +-> dates & dom(date_creation) = dossiers & ((date_creation) : (((dossiers) --> (dates)))) & ((modification_etat) : ((((dossiers * dates)) +-> (etat_traitement)))) & traitement_lib : (dates * employes) +-> lib_traitement & dom(traitement_lib) = (dates * employes) & ((traitement_lib) : ((((dates * employes)) --> (lib_traitement)))) & traitement_etat : (dates * employes) +-> etat_traitement & dom(traitement_etat) = (dates * employes) & ((traitement_etat) : ((((dates * employes)) --> (etat_traitement)))) & historique : dossiers +-> (((dates * employes)) +-> ((lib_traitement * etat_traitement))) & dom(historique) = dossiers & ((historique) : (((dossiers) --> ((((dates * employes)) +-> ((lib_traitement * etat_traitement))))))) & (card(modification_etat) <= max_op) & ((dom(traitement_lib)) = (dom(traitement_etat)));
+((id_c) : (EMPLOYE)) & ((date_c) : (NAT));
+((nouvd) : (NAT));
+((nouvd) = ((nb_dossier + 1)));
+lib_traitement : POW( ((1..3)*{LIBELLE_TRAITEMENT}));
+etat_traitement : POW( ((1..3)*{ETAT_TRAITEMENT}));
+((((proprietaire) \/ ({((nouvd) |-> (id_c))}))) : (((dossiers) --> (employes))));
+"Check invariant ((date_creation) : (((dossiers) --> (dates))))";
+((((date_creation) \/ ({((nouvd) |-> (date_c))}))) : (((dossiers) --> (dates))));
+((id_d) : (NAT)) & ((id_c) : (EMPLOYE)) & ((date) : (NAT)) & ((lib_op) : (((1..3)*{LIBELLE_TRAITEMENT}))) & ((etat_op) : (((1..3)*{ETAT_TRAITEMENT}))) & ((id_c) = ((proprietaire )(id_d)));
+((((modification_etat) <+ ({((((id_d) |-> (date))) |-> (etat_op))}))) : ((((dossiers * dates)) +-> (etat_traitement))));
+((((traitement_lib) <+ ({((((date) |-> (id_c))) |-> (lib_op))}))) : ((((dates * employes)) --> (lib_traitement))));
+"Check invariant ((traitement_etat) : ((((dates * employes)) --> (etat_traitement))))";
+((((traitement_etat) <+ ({((((date) |-> (id_c))) |-> (etat_op))}))) : ((((dates * employes)) --> (etat_traitement))));
+((((historique) <+ ({((id_d) |-> ((((historique )(id_d)) <+ ({((((date) |-> (id_c))) |-> (((lib_op) |-> (etat_op))))}))))}))) : (((dossiers) --> ((((dates * employes)) +-> ((lib_traitement * etat_traitement)))))));
+(card(((modification_etat) <+ ({((((id_d) |-> (date))) |-> (etat_op))}))) <= max_op);
+"Check invariant ((dom(traitement_lib)) = (dom(traitement_etat)))";
+((dom(((traitement_lib) <+ ({((((date) |-> (id_c))) |-> (lib_op))})))) = (dom(((traitement_etat) <+ ({((((date) |-> (id_c))) |-> (etat_op))})))));
+((id_d) : (NAT)) & ((ordre_m) : (NAT)) & ((nouv_etat) : (((1..3)*{ETAT_TRAITEMENT})));
+((((historique) <+ ({((id_d) |-> ((((historique )(id_d)) <+ ({((((ordre_m) |-> ((proprietaire )(id_d)))) |-> ((((traitement_lib )(((ordre_m) |-> ((proprietaire )(id_d))))) |-> (nouv_etat))))}))))}))) : (((dossiers) --> ((((dates * employes)) +-> ((lib_traitement * etat_traitement)))))));
+EMPLOYE: FIN(INTEGER) & not(EMPLOYE = {});
+(card(modification_etat) <= max_op);
+historique : dossiers +-> (((dates * employes)) +-> ((lib_traitement * etat_traitement)));
+dom(historique) = dossiers;
+((historique) : (((dossiers) --> ((((dates * employes)) +-> ((lib_traitement * etat_traitement)))))));
+traitement_etat : (dates * employes) +-> etat_traitement;
+dom(traitement_etat) = (dates * employes);
+((traitement_etat) : ((((dates * employes)) --> (etat_traitement))));
+traitement_lib : (dates * employes) +-> lib_traitement;
+dom(traitement_lib) = (dates * employes);
+((traitement_lib) : ((((dates * employes)) --> (lib_traitement))));
+((modification_etat) : ((((dossiers * dates)) +-> (etat_traitement))));
+date_creation : dossiers +-> dates;
+dom(date_creation) = dossiers;
+((date_creation) : (((dossiers) --> (dates))));
+proprietaire : dossiers +-> employes;
+dom(proprietaire) = dossiers;
+((proprietaire) : (((dossiers) --> (employes))));
+dates : POW( NAT);
+employes : POW( EMPLOYE);
+((nb_dossier) : (INT));
+dossiers : POW( NAT);
+"Well definedness";
+((modification_etat) : (FIN(modification_etat)));
+((id_c) : (EMPLOYE));
+((etat_op) : (((1..3)*{ETAT_TRAITEMENT})));
+((lib_op) : (((1..3)*{LIBELLE_TRAITEMENT})));
+((date) : (NAT));
+((id_d) : (NAT));
+((id_d) : (dom(proprietaire)));
+((proprietaire) : (((dom(proprietaire)) +-> (ran(proprietaire)))));
+((id_d) : (dom(historique)));
+((historique) : (((dom(historique)) +-> (ran(historique)))));
+((ordre_m) : (NAT));
+((((ordre_m) |-> ((proprietaire )(id_d)))) : (dom(traitement_lib)));
+((traitement_lib) : (((dom(traitement_lib)) +-> (ran(traitement_lib)))))
+END
+&
+THEORY EnumerateX IS
+ETAT_TRAITEMENT == {commence,en_cours,termine};
+LIBELLE_TRAITEMENT == {creation,modification,suppression}
+END

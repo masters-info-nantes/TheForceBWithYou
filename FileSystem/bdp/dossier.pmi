@@ -1,31 +1,25 @@
 ﻿THEORY BalanceX IS
-  pgcd_i,31,0,0,8,0,0,0;
-  WellDefinedness_pgcd_calc,3,0,0,1,0,0,0;
-  pgcd_calc,28,0,0,7,0,0,0
+  dossier,36,0,0,16,0,0,0;
+  Initialisation,10,0,0,10,0,0,0;
+  WellDefinednessInvariant,1,0,0,0,0,0,0;
+  WellDefinedness_Precondition_tracerOperation,2,0,0,1,0,0,0;
+  WellDefinedness_modifierEtatTraitement,6,0,0,3,0,0,0;
+  WellDefinedness_tracerOperation,2,0,0,1,0,0,0;
+  creerDossier,4,0,0,0,0,0,0;
+  modifierEtatTraitement,3,0,0,0,0,0,0;
+  tracerOperation,8,0,0,1,0,0,0
 END
 &
 THEORY ProofState IS
   Proved(0);
   Unproved;
-  Unproved;
-  Unproved;
-  Unproved;
-  Unproved;
+  Proved(0);
   Unproved;
   Proved(0);
   Unproved;
-  Unproved;
   Proved(0);
   Unproved;
-  Unproved;
-  Unproved;
-  Unproved;
   Proved(0);
-  Proved(0);
-  Proved(0);
-  Proved(0);
-  Unproved;
-  Unproved;
   Unproved;
   Unproved;
   Unproved;
@@ -35,31 +29,36 @@ THEORY ProofState IS
   Unproved;
   Unproved;
   Unproved;
-  Unproved
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Unproved;
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0);
+  Proved(0)
 END
 &
 THEORY MethodList IS
   pr;
   ?;
-  ?;
-  ?;
-  ?;
-  ?;
+  pr;
   ?;
   pr;
   ?;
-  ?;
   pr;
   ?;
-  ?;
-  ?;
-  ?;
   pr;
-  pr;
-  pr;
-  pr;
-  ?;
-  ?;
   ?;
   ?;
   ?;
@@ -69,31 +68,36 @@ THEORY MethodList IS
   ?;
   ?;
   ?;
-  ?
+  ?;
+  ?;
+  ?;
+  ?;
+  ?;
+  ?;
+  ?;
+  ?;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr;
+  pr
 END
 &
 THEORY PassList IS
   Force(0),?;
   Force(0),(?;0;1);
-  Force(0),(?;0;1);
-  Force(0),(?;0;1);
-  Force(0),(?;0;1);
-  Force(0),(?;0;1);
+  Force(0),?;
   Force(0),(?;0;1);
   Force(0),?;
   Force(0),(?;0;1);
-  Force(0),(?;0;1);
   Force(0),?;
   Force(0),(?;0;1);
-  Force(0),(?;0;1);
-  Force(0),(?;0;1);
-  Force(0),(?;0;1);
   Force(0),?;
-  Force(0),?;
-  Force(0),?;
-  Force(0),?;
-  Force(0),(?;0;1);
-  Force(0),(?;0;1);
   Force(0),(?;0;1);
   Force(0),(?;0;1);
   Force(0),(?;0;1);
@@ -103,7 +107,24 @@ THEORY PassList IS
   Force(0),(?;0;1);
   Force(0),(?;0;1);
   Force(0),(?;0;1);
-  Force(0),(?;0;1)
+  Force(0),(?;0;1);
+  Force(0),(?;0;1);
+  Force(0),(?;0;1);
+  Force(0),(?;0;1);
+  Force(0),(?;0;1);
+  Force(0),(?;0;1);
+  Force(0),(?;0;1);
+  Force(0),(?;0;1);
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?;
+  Force(0),?
 END
 &
 THEORY ManForms 

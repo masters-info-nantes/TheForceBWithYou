@@ -1,0 +1,1638 @@
+<Proof_Obligations>
+<Define name="B definitions">
+<Nary_Pred op="&amp;" translate="((NAT) = (((0) .. (2147483647)))) &amp; ((INT) = (((-2147483647) .. (2147483647))))">
+<Exp_Comparison op="=" translate="((NAT) = (((0) .. (2147483647))))">
+<Id value="NAT"/>
+<Binary_Exp op="..">
+<Integer_Literal value="0"/>
+<Id value="MAXINT"/>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="=" translate="((INT) = (((-2147483647) .. (2147483647))))">
+<Id value="INT"/>
+<Binary_Exp op="..">
+<Id value="MININT"/>
+<Id value="MAXINT"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Define>
+<Define name="ctx"/>
+<Define name="seext"/>
+<Define name="inv">
+<Nary_Pred op="&amp;" translate="lib_traitement : POW( LIBELLE_TRAITEMENT) &amp; etat_traitement : POW( ETAT_TRAITEMENT) &amp; dossiers : POW( NAT) &amp; ((nb_dossier) : (INT)) &amp; employes : POW( EMPLOYE) &amp; dates : POW( NAT) &amp; proprietaire : dossiers +-> employes &amp; dom(proprietaire) = dossiers &amp; ((proprietaire) : (((dossiers) --> (employes)))) &amp; date_creation : dossiers +-> dates &amp; dom(date_creation) = dossiers &amp; ((date_creation) : (((dossiers) --> (dates)))) &amp; ((modification_etat) : ((((dossiers * dates)) +-> (etat_traitement)))) &amp; traitement_lib : (dates * employes) +-> lib_traitement &amp; dom(traitement_lib) = (dates * employes) &amp; ((traitement_lib) : ((((dates * employes)) --> (lib_traitement)))) &amp; traitement_etat : (dates * employes) +-> etat_traitement &amp; dom(traitement_etat) = (dates * employes) &amp; ((traitement_etat) : ((((dates * employes)) --> (etat_traitement)))) &amp; historique : dossiers +-> (((dates * employes)) +-> ((lib_traitement * etat_traitement))) &amp; dom(historique) = dossiers &amp; ((historique) : (((dossiers) --> ((((dates * employes)) +-> ((lib_traitement * etat_traitement))))))) &amp; (card(modification_etat) &lt;= max_op) &amp; ((dom(traitement_lib)) = (dom(traitement_etat)))">
+<Exp_Comparison op="&lt;:" initialTag="lib_traitement : POW( LIBELLE_TRAITEMENT)" translate="lib_traitement : POW( LIBELLE_TRAITEMENT)">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:1:1" typref="1657142084" value="lib_traitement"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:1:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
+</Exp_Comparison>
+<Exp_Comparison op="&lt;:" initialTag="etat_traitement : POW( ETAT_TRAITEMENT)" translate="etat_traitement : POW( ETAT_TRAITEMENT)">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:2:1" typref="1614409389" value="etat_traitement"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:2:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
+</Exp_Comparison>
+<Exp_Comparison op="&lt;:" initialTag="dossiers : POW( NAT)" translate="dossiers : POW( NAT)">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:3:1" typref="3603043417" value="dossiers"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:3:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+<Exp_Comparison op=":" initialTag="((nb_dossier) : (INT))" translate="((nb_dossier) : (INT))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:4:1" typref="2701647786" value="nb_dossier"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:4:2" typref="3603043417" value="INT"/>
+</Exp_Comparison>
+<Exp_Comparison op="&lt;:" initialTag="employes : POW( EMPLOYE)" translate="employes : POW( EMPLOYE)">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:5:1" typref="1585237810" value="employes"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:5:2" typref="1585237810" value="EMPLOYE"/>
+</Exp_Comparison>
+<Exp_Comparison op="&lt;:" initialTag="dates : POW( NAT)" translate="dates : POW( NAT)">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:6:1" typref="3603043417" value="dates"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:6:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+<Exp_Comparison op=":" initialTag="((proprietaire) : (((dossiers) --> (employes))))" translate="proprietaire : dossiers +-> employes &amp; dom(proprietaire) = dossiers &amp; ((proprietaire) : (((dossiers) --> (employes))))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:1" typref="4017641513" value="proprietaire"/>
+<Binary_Exp op="-->" typref="2189467674">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:2:1" typref="3603043417" value="dossiers"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:2:2" typref="1585237810" value="employes"/>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=":" initialTag="((date_creation) : (((dossiers) --> (dates))))" translate="date_creation : dossiers +-> dates &amp; dom(date_creation) = dossiers &amp; ((date_creation) : (((dossiers) --> (dates))))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:1" typref="103245008" value="date_creation"/>
+<Binary_Exp op="-->" typref="3083833907">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1" typref="3603043417" value="dossiers"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:2" typref="3603043417" value="dates"/>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=":" initialTag="((modification_etat) : ((((dossiers * dates)) +-> (etat_traitement))))" translate="((modification_etat) : ((((dossiers * dates)) +-> (etat_traitement))))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:1" typref="2426838171" value="modification_etat"/>
+<Binary_Exp op="+->" typref="610123304">
+<Binary_Exp op="*" typref="103245008">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:1" typref="3603043417" value="dossiers"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:2" typref="3603043417" value="dates"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:2" typref="1614409389" value="etat_traitement"/>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) --> (lib_traitement))))" translate="traitement_lib : (dates * employes) +-> lib_traitement &amp; dom(traitement_lib) = (dates * employes) &amp; ((traitement_lib) : ((((dates * employes)) --> (lib_traitement))))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:1" typref="1902706489" value="traitement_lib"/>
+<Binary_Exp op="-->" typref="1583668704">
+<Binary_Exp op="*" typref="4017641513">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:2:1:1" typref="3603043417" value="dates"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:2:1:2" typref="1585237810" value="employes"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:2:2" typref="1657142084" value="lib_traitement"/>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) --> (etat_traitement))))" translate="traitement_etat : (dates * employes) +-> etat_traitement &amp; dom(traitement_etat) = (dates * employes) &amp; ((traitement_etat) : ((((dates * employes)) --> (etat_traitement))))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:11:1" typref="2125782260" value="traitement_etat"/>
+<Binary_Exp op="-->" typref="2066464527">
+<Binary_Exp op="*" typref="4017641513">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:11:2:1:1" typref="3603043417" value="dates"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:11:2:1:2" typref="1585237810" value="employes"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:11:2:2" typref="1614409389" value="etat_traitement"/>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=":" initialTag="((historique) : (((dossiers) --> ((((dates * employes)) +-> ((lib_traitement * etat_traitement)))))))" translate="historique : dossiers +-> (((dates * employes)) +-> ((lib_traitement * etat_traitement))) &amp; dom(historique) = dossiers &amp; ((historique) : (((dossiers) --> ((((dates * employes)) +-> ((lib_traitement * etat_traitement)))))))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:1" typref="449032716" value="historique"/>
+<Binary_Exp op="-->" typref="430301517">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:1" typref="3603043417" value="dossiers"/>
+<Binary_Exp op="+->" typref="1464856135">
+<Binary_Exp op="*" typref="4017641513">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:1:1" typref="3603043417" value="dates"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:1:2" typref="1585237810" value="employes"/>
+</Binary_Exp>
+<Binary_Exp op="*" typref="251958173">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:2:1" typref="1657142084" value="lib_traitement"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:2:2" typref="1614409389" value="etat_traitement"/>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op="&lt;=" initialTag="(card(modification_etat) &lt;= max_op)" translate="(card(modification_etat) &lt;= max_op)">
+<Unary_Exp op="card" typref="2701647786">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:13:1:1" typref="2426838171" value="modification_etat"/>
+</Unary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:13:2" typref="2701647786" value="max_op"/>
+</Exp_Comparison>
+<Exp_Comparison op="=" initialTag="((dom(traitement_lib)) = (dom(traitement_etat)))" translate="((dom(traitement_lib)) = (dom(traitement_etat)))">
+<Unary_Exp op="dom" typref="4017641513">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:14:1:1" typref="1902706489" value="traitement_lib"/>
+</Unary_Exp>
+<Unary_Exp op="dom" typref="4017641513">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:14:2:1" typref="2125782260" value="traitement_etat"/>
+</Unary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Define>
+<Define name="ass"/>
+<Define name="lprp">
+<Set translate="EMPLOYE: FIN(INTEGER) &amp; not(EMPLOYE = {})">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:1:1" typref="1585237810" value="EMPLOYE"/>
+</Set>
+<Set translate="((1..3)*{LIBELLE_TRAITEMENT}): FIN(NATURAL*{LIBELLE_TRAITEMENT}) &amp; not(((1..3)*{LIBELLE_TRAITEMENT}) = {})">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:2:1" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
+<Enumerated_Values>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:2:2:1" typref="2199961173" value="creation"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:2:2:2" typref="2199961173" value="modification"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:2:2:3" typref="2199961173" value="suppression"/>
+</Enumerated_Values>
+</Set>
+<Set translate="((1..3)*{ETAT_TRAITEMENT}): FIN(NATURAL*{ETAT_TRAITEMENT}) &amp; not(((1..3)*{ETAT_TRAITEMENT}) = {})">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:3:1" typref="1614409389" value="ETAT_TRAITEMENT"/>
+<Enumerated_Values>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:3:2:1" typref="1151142486" value="commence"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:3:2:2" typref="1151142486" value="en_cours"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:3:2:3" typref="1151142486" value="termine"/>
+</Enumerated_Values>
+</Set>
+<Exp_Comparison op=":" translate="((max_op) : (((1) .. (5))))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:4:1:1" typref="2701647786" value="max_op"/>
+<Binary_Exp op=".." typref="3603043417">
+<Integer_Literal tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:4:1:2:1" typref="2701647786" value="1"/>
+<Integer_Literal tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:4:1:2:2" typref="2701647786" value="5"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Define>
+<Define name="inprp"/>
+<Define name="inext"/>
+<Define name="cst"/>
+<Proof_Obligation>
+<Comment>Initialisation dans une machine abstraite</Comment>
+<Tag>Initialisation</Tag>
+<Tag>Invariant</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Local_Hyp num="1">
+<Nary_Pred op="&amp;"/>
+</Local_Hyp>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op="&lt;:" initialTag="lib_traitement : POW( LIBELLE_TRAITEMENT)" goalTag="Invariant is preserved">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:1:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:1:1:1" typref="1657142084"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:1:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op="&lt;:" initialTag="etat_traitement : POW( ETAT_TRAITEMENT)" goalTag="Invariant is preserved">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:2:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:2:1:1" typref="1614409389"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:2:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op="&lt;:" initialTag="dossiers : POW( NAT)" goalTag="Invariant is preserved">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:3:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:3:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:3:1:1" typref="3603043417"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:3:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":" initialTag="((nb_dossier) : (INT))" goalTag="Invariant is preserved">
+<Integer_Literal tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:6:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:4:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:6:1:1" typref="2701647786" value="0"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:4:2" typref="3603043417" value="INT"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op="&lt;:" initialTag="employes : POW( EMPLOYE)" goalTag="Invariant is preserved">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:4:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:5:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:4:1:1" typref="1585237810"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:5:2" typref="1585237810" value="EMPLOYE"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":" initialTag="((proprietaire) : (((dossiers) --> (employes))))" goalTag="Invariant is preserved">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:7:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:7:1:1" typref="4017641513"/>
+<Binary_Exp op="-->" typref="2189467674">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:3:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:3:1:1" typref="3603043417"/>
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:4:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:2:2,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:4:1:1" typref="1585237810"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":" initialTag="((modification_etat) : ((((dossiers * dates)) +-> (etat_traitement))))" goalTag="Invariant is preserved">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:9:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:9:1:1" typref="2426838171"/>
+<Binary_Exp op="+->" typref="610123304">
+<Binary_Exp op="*" typref="103245008">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:3:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:3:1:1" typref="3603043417"/>
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:5:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:2,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:5:1:1" typref="3603043417"/>
+</Binary_Exp>
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:2:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:2,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:2:1:1" typref="1614409389"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) --> (lib_traitement))))" goalTag="Invariant is preserved">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:10:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:10:1:1" typref="1902706489"/>
+<Binary_Exp op="-->" typref="1583668704">
+<Binary_Exp op="*" typref="4017641513">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:5:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:2:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:5:1:1" typref="3603043417"/>
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:4:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:2:1:2,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:4:1:1" typref="1585237810"/>
+</Binary_Exp>
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:1:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:2:2,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:1:1:1" typref="1657142084"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":" initialTag="((historique) : (((dossiers) --> ((((dates * employes)) +-> ((lib_traitement * etat_traitement)))))))" goalTag="Invariant is preserved">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:12:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:12:1:1" typref="449032716"/>
+<Binary_Exp op="-->" typref="430301517">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:3:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:3:1:1" typref="3603043417"/>
+<Binary_Exp op="+->" typref="1464856135">
+<Binary_Exp op="*" typref="4017641513">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:5:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:5:1:1" typref="3603043417"/>
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:4:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:1:2,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:4:1:1" typref="1585237810"/>
+</Binary_Exp>
+<Binary_Exp op="*" typref="251958173">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:1:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:1:1:1" typref="1657142084"/>
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:2:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:2:2,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:2:1:1" typref="1614409389"/>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op="&lt;=" initialTag="(card(modification_etat) &lt;= max_op)" goalTag="Invariant is preserved">
+<Unary_Exp op="card" typref="2701647786">
+<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:9:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:13:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:9:1:1" typref="2426838171"/>
+</Unary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:13:2" typref="2701647786" value="max_op"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>creerDossier</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:1:1" typref="4202345361" value="id_c"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:1:2" typref="1585237810" value="EMPLOYE"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:1" typref="2701647786" value="date_c"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+</Nary_Pred>
+</Hypothesis>
+<Local_Hyp num="1">
+<Nary_Pred op="&amp;"/>
+</Local_Hyp>
+<Local_Hyp num="2">
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Id suffix="" tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:2:1:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:1:1" typref="2701647786" value="nouvd"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:2:1:1:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+<Exp_Comparison op="=">
+<Id suffix="" tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:2:1:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:1:1" typref="2701647786" value="nouvd"/>
+<Binary_Exp op="+" typref="2701647786">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:2:1:2:2:1" typref="2701647786" value="nb_dossier"/>
+<Integer_Literal tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:2:1:2:2:2" typref="2701647786" value="1"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Local_Hyp>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="2"/>
+<Ref_Hyp num="1"/>
+</Nary_Pred>
+<Exp_Comparison op="&lt;:" initialTag="lib_traitement : POW( LIBELLE_TRAITEMENT)" goalTag="Invariant is preserved">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:1:1" typref="1657142084" value="lib_traitement"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:1:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="2"/>
+<Ref_Hyp num="1"/>
+</Nary_Pred>
+<Exp_Comparison op="&lt;:" initialTag="etat_traitement : POW( ETAT_TRAITEMENT)" goalTag="Invariant is preserved">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:2:1" typref="1614409389" value="etat_traitement"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:2:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="2"/>
+<Ref_Hyp num="1"/>
+</Nary_Pred>
+<Exp_Comparison op=":" initialTag="((proprietaire) : (((dossiers) --> (employes))))" goalTag="Invariant is preserved">
+<Binary_Exp op="\/" tag=",D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:3:1:1:1:1" typref="4017641513">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:3:1:1:2:1:1" typref="4017641513" value="proprietaire" fixed="false"/>
+<Nary_Exp op="{" typref="4017641513">
+<Binary_Exp op="|->" typref="4239954394">
+<Id suffix="" tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:3:1:1:2:1:2:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:1:1" typref="2701647786" value="nouvd"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:3:1:1:2:1:2:1:2" typref="4202345361" value="id_c"/>
+</Binary_Exp>
+</Nary_Exp>
+</Binary_Exp>
+<Binary_Exp op="-->" typref="2189467674">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:2:1" typref="3603043417" value="dossiers"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:2:2" typref="1585237810" value="employes"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="2"/>
+<Ref_Hyp num="1"/>
+</Nary_Pred>
+<Exp_Comparison op=":" initialTag="((date_creation) : (((dossiers) --> (dates))))" goalTag="Invariant is preserved">
+<Binary_Exp op="\/" tag=",D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:3:1:2:1:1" typref="103245008">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:3:1:2:2:1:1" typref="103245008" value="date_creation"/>
+<Nary_Exp op="{" typref="103245008">
+<Binary_Exp op="|->" typref="3672872563">
+<Id suffix="" tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:3:1:2:2:1:2:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:1:1" typref="2701647786" value="nouvd"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:3:1:2:2:1:2:1:2" typref="2701647786" value="date_c"/>
+</Binary_Exp>
+</Nary_Exp>
+</Binary_Exp>
+<Binary_Exp op="-->" typref="3083833907">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1" typref="3603043417" value="dossiers"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:2" typref="3603043417" value="dates"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>tracerOperation</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:1:1" typref="2701647786" value="id_d"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:1:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:2:1" typref="4202345361" value="id_c"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:2:2" typref="1585237810" value="EMPLOYE"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:3:1" typref="2701647786" value="date"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:3:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:4:1" typref="2199961173" value="lib_op"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:4:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:5:1" typref="1151142486" value="etat_op"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:5:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
+</Exp_Comparison>
+<Exp_Comparison op="=">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:6:1" typref="4202345361" value="id_c"/>
+<Binary_Exp op="(" typref="4202345361">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:6:2:1" typref="4017641513" value="proprietaire"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:6:2:2" typref="2701647786" value="id_d"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Hypothesis>
+<Local_Hyp num="1">
+<Nary_Pred op="&amp;"/>
+</Local_Hyp>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op="&lt;:" initialTag="lib_traitement : POW( LIBELLE_TRAITEMENT)" goalTag="Invariant is preserved">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:1:1" typref="1657142084" value="lib_traitement"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:1:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op="&lt;:" initialTag="etat_traitement : POW( ETAT_TRAITEMENT)" goalTag="Invariant is preserved">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:2:1" typref="1614409389" value="etat_traitement"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:2:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":" initialTag="((modification_etat) : ((((dossiers * dates)) +-> (etat_traitement))))" goalTag="Invariant is preserved">
+<Binary_Exp op="&lt;+" tag=",D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:1:1:1:1" typref="2426838171">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:1:1:1:1" typref="2426838171" value="modification_etat" fixed="false"/>
+<Nary_Exp op="{">
+<Binary_Exp op="|->">
+<Binary_Exp op="|->">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:1:1:1:2:1" typref="2701647786" value="id_d"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:1:1:1:2:2" typref="2701647786" value="date"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:1:2:1" typref="1151142486" value="etat_op"/>
+</Binary_Exp>
+</Nary_Exp>
+</Binary_Exp>
+<Binary_Exp op="+->" typref="610123304">
+<Binary_Exp op="*" typref="103245008">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:1" typref="3603043417" value="dossiers"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:2" typref="3603043417" value="dates"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:2" typref="1614409389" value="etat_traitement"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) --> (lib_traitement))))" goalTag="Invariant is preserved">
+<Binary_Exp op="&lt;+" tag=",D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:2:1:1:1" typref="1902706489">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:2:1:1:1" typref="1902706489" value="traitement_lib" fixed="false"/>
+<Nary_Exp op="{">
+<Binary_Exp op="|->">
+<Binary_Exp op="|->">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:2:1:1:2:1" typref="2701647786" value="date"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:2:1:1:2:2" typref="4202345361" value="id_c"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:2:2:1" typref="2199961173" value="lib_op"/>
+</Binary_Exp>
+</Nary_Exp>
+</Binary_Exp>
+<Binary_Exp op="-->" typref="1583668704">
+<Binary_Exp op="*" typref="4017641513">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:2:1:1" typref="3603043417" value="dates"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:2:1:2" typref="1585237810" value="employes"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:2:2" typref="1657142084" value="lib_traitement"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) --> (etat_traitement))))" goalTag="Invariant is preserved">
+<Binary_Exp op="&lt;+" tag=",D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:11:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:3:1:1:1" typref="2125782260">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:3:1:1:1" typref="2125782260" value="traitement_etat" fixed="false"/>
+<Nary_Exp op="{">
+<Binary_Exp op="|->">
+<Binary_Exp op="|->">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:3:1:1:2:1" typref="2701647786" value="date"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:3:1:1:2:2" typref="4202345361" value="id_c"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:3:2:1" typref="1151142486" value="etat_op"/>
+</Binary_Exp>
+</Nary_Exp>
+</Binary_Exp>
+<Binary_Exp op="-->" typref="2066464527">
+<Binary_Exp op="*" typref="4017641513">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:11:2:1:1" typref="3603043417" value="dates"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:11:2:1:2" typref="1585237810" value="employes"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:11:2:2" typref="1614409389" value="etat_traitement"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":" initialTag="((historique) : (((dossiers) --> ((((dates * employes)) +-> ((lib_traitement * etat_traitement)))))))" goalTag="Invariant is preserved">
+<Binary_Exp op="&lt;+" tag=",D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:4:1:1:1:1" typref="449032716">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:4:1:1:1:1" typref="449032716" value="historique"/>
+<Nary_Exp op="{">
+<Binary_Exp op="|->">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:4:1:1:1:2" typref="2701647786" value="id_d"/>
+<Binary_Exp op="&lt;+">
+<Binary_Exp op="(" typref="1432952850">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:4:1:1:1:1" typref="449032716" value="historique"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:4:1:1:1:2" typref="2701647786" value="id_d"/>
+</Binary_Exp>
+<Nary_Exp op="{">
+<Binary_Exp op="|->">
+<Binary_Exp op="|->">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:4:1:1:2:1" typref="2701647786" value="date"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:4:1:1:2:2" typref="4202345361" value="id_c"/>
+</Binary_Exp>
+<Binary_Exp op="|->" typref="457778364">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:4:2:1:1" typref="2199961173" value="lib_op"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:4:2:1:2" typref="1151142486" value="etat_op"/>
+</Binary_Exp>
+</Binary_Exp>
+</Nary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+</Nary_Exp>
+</Binary_Exp>
+<Binary_Exp op="-->" typref="430301517">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:1" typref="3603043417" value="dossiers"/>
+<Binary_Exp op="+->" typref="1464856135">
+<Binary_Exp op="*" typref="4017641513">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:1:1" typref="3603043417" value="dates"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:1:2" typref="1585237810" value="employes"/>
+</Binary_Exp>
+<Binary_Exp op="*" typref="251958173">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:2:1" typref="1657142084" value="lib_traitement"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:2:2" typref="1614409389" value="etat_traitement"/>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op="&lt;=" initialTag="(card(modification_etat) &lt;= max_op)" goalTag="Invariant is preserved">
+<Unary_Exp op="card" typref="2701647786">
+<Binary_Exp op="&lt;+" tag=",D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:13:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:1:1:1:1" typref="2426838171">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:1:1:1:1" typref="2426838171" value="modification_etat" fixed="false"/>
+<Nary_Exp op="{">
+<Binary_Exp op="|->">
+<Binary_Exp op="|->">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:1:1:1:2:1" typref="2701647786" value="id_d"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:1:1:1:2:2" typref="2701647786" value="date"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:1:2:1" typref="1151142486" value="etat_op"/>
+</Binary_Exp>
+</Nary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:13:2" typref="2701647786" value="max_op"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op="=" initialTag="((dom(traitement_lib)) = (dom(traitement_etat)))" goalTag="Invariant is preserved">
+<Unary_Exp op="dom" typref="4017641513">
+<Binary_Exp op="&lt;+" tag=",D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:14:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:2:1:1:1" typref="1902706489">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:2:1:1:1" typref="1902706489" value="traitement_lib" fixed="false"/>
+<Nary_Exp op="{">
+<Binary_Exp op="|->">
+<Binary_Exp op="|->">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:2:1:1:2:1" typref="2701647786" value="date"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:2:1:1:2:2" typref="4202345361" value="id_c"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:2:2:1" typref="2199961173" value="lib_op"/>
+</Binary_Exp>
+</Nary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+<Unary_Exp op="dom" typref="4017641513">
+<Binary_Exp op="&lt;+" tag=",D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:14:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:3:1:1:1" typref="2125782260">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:3:1:1:1" typref="2125782260" value="traitement_etat" fixed="false"/>
+<Nary_Exp op="{">
+<Binary_Exp op="|->">
+<Binary_Exp op="|->">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:3:1:1:2:1" typref="2701647786" value="date"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:3:1:1:2:2" typref="4202345361" value="id_c"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:3:2:1" typref="1151142486" value="etat_op"/>
+</Binary_Exp>
+</Nary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>modifierEtatTraitement</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:1:1" typref="2701647786" value="id_d"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:1:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:2:1" typref="2701647786" value="ordre_m"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:2:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:3:1" typref="1151142486" value="nouv_etat"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:3:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
+</Exp_Comparison>
+</Nary_Pred>
+</Hypothesis>
+<Local_Hyp num="1">
+<Nary_Pred op="&amp;"/>
+</Local_Hyp>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op="&lt;:" initialTag="lib_traitement : POW( LIBELLE_TRAITEMENT)" goalTag="Invariant is preserved">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:1:1" typref="1657142084" value="lib_traitement"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:1:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op="&lt;:" initialTag="etat_traitement : POW( ETAT_TRAITEMENT)" goalTag="Invariant is preserved">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:2:1" typref="1614409389" value="etat_traitement"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:2:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Invariant is preserved</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Ref_Hyp num="1"/>
+<Exp_Comparison op=":" initialTag="((historique) : (((dossiers) --> ((((dates * employes)) +-> ((lib_traitement * etat_traitement)))))))" goalTag="Invariant is preserved">
+<Binary_Exp op="&lt;+" tag=",D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:1:1" typref="449032716">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:1:1" typref="449032716" value="historique"/>
+<Nary_Exp op="{">
+<Binary_Exp op="|->">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:1:2" typref="2701647786" value="id_d"/>
+<Binary_Exp op="&lt;+">
+<Binary_Exp op="(" typref="1432952850">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:1:1" typref="449032716" value="historique"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:1:2" typref="2701647786" value="id_d"/>
+</Binary_Exp>
+<Nary_Exp op="{">
+<Binary_Exp op="|->">
+<Binary_Exp op="|->">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:2:1" typref="2701647786" value="ordre_m"/>
+<Binary_Exp op="(" typref="4202345361">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:2:2:1" typref="4017641513" value="proprietaire"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:2:2:2" typref="2701647786" value="id_d"/>
+</Binary_Exp>
+</Binary_Exp>
+<Binary_Exp op="|->" typref="457778364">
+<Binary_Exp op="(" typref="2199961173">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:2:1:1:1" typref="1902706489" value="traitement_lib"/>
+<Binary_Exp op="|->">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:2:1:1:2:1" typref="2701647786" value="ordre_m"/>
+<Binary_Exp op="(" typref="4202345361">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:2:1:1:2:2:1" typref="4017641513" value="proprietaire"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:2:1:1:2:2:2" typref="2701647786" value="id_d"/>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:2:1:2" typref="1151142486" value="nouv_etat"/>
+</Binary_Exp>
+</Binary_Exp>
+</Nary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+</Nary_Exp>
+</Binary_Exp>
+<Binary_Exp op="-->" typref="430301517">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:1" typref="3603043417" value="dossiers"/>
+<Binary_Exp op="+->" typref="1464856135">
+<Binary_Exp op="*" typref="4017641513">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:1:1" typref="3603043417" value="dates"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:1:2" typref="1585237810" value="employes"/>
+</Binary_Exp>
+<Binary_Exp op="*" typref="251958173">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:2:1" typref="1657142084" value="lib_traitement"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:2:2" typref="1614409389" value="etat_traitement"/>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessConstraints</Tag>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessProperties</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Hypothesis>
+<Set>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:1:1" typref="1585237810" value="EMPLOYE"/>
+</Set>
+<Set>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:2:1" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
+<Enumerated_Values>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:2:2:1" typref="2199961173" value="creation"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:2:2:2" typref="2199961173" value="modification"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:2:2:3" typref="2199961173" value="suppression"/>
+</Enumerated_Values>
+</Set>
+<Set>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:3:1" typref="1614409389" value="ETAT_TRAITEMENT"/>
+<Enumerated_Values>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:3:2:1" typref="1151142486" value="commence"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:3:2:2" typref="1151142486" value="en_cours"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:1:3:2:3" typref="1151142486" value="termine"/>
+</Enumerated_Values>
+</Set>
+</Hypothesis>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessInvariant</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Local_Hyp num="1">
+<Exp_Comparison op="&lt;=" initialTag="(card(modification_etat) &lt;= max_op)">
+<Unary_Exp op="card" typref="2701647786">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:13:1:1" typref="2426838171" value="modification_etat"/>
+</Unary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:13:2" typref="2701647786" value="max_op"/>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="2">
+<Exp_Comparison op=":" initialTag="((historique) : (((dossiers) --> ((((dates * employes)) +-> ((lib_traitement * etat_traitement)))))))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:1" typref="449032716" value="historique"/>
+<Binary_Exp op="-->" typref="430301517">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:1" typref="3603043417" value="dossiers"/>
+<Binary_Exp op="+->" typref="1464856135">
+<Binary_Exp op="*" typref="4017641513">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:1:1" typref="3603043417" value="dates"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:1:2" typref="1585237810" value="employes"/>
+</Binary_Exp>
+<Binary_Exp op="*" typref="251958173">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:2:1" typref="1657142084" value="lib_traitement"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:12:2:2:2:2" typref="1614409389" value="etat_traitement"/>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="3">
+<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) --> (etat_traitement))))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:11:1" typref="2125782260" value="traitement_etat"/>
+<Binary_Exp op="-->" typref="2066464527">
+<Binary_Exp op="*" typref="4017641513">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:11:2:1:1" typref="3603043417" value="dates"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:11:2:1:2" typref="1585237810" value="employes"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:11:2:2" typref="1614409389" value="etat_traitement"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="4">
+<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) --> (lib_traitement))))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:1" typref="1902706489" value="traitement_lib"/>
+<Binary_Exp op="-->" typref="1583668704">
+<Binary_Exp op="*" typref="4017641513">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:2:1:1" typref="3603043417" value="dates"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:2:1:2" typref="1585237810" value="employes"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:10:2:2" typref="1657142084" value="lib_traitement"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="5">
+<Exp_Comparison op=":" initialTag="((modification_etat) : ((((dossiers * dates)) +-> (etat_traitement))))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:1" typref="2426838171" value="modification_etat"/>
+<Binary_Exp op="+->" typref="610123304">
+<Binary_Exp op="*" typref="103245008">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:1" typref="3603043417" value="dossiers"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:2" typref="3603043417" value="dates"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:2" typref="1614409389" value="etat_traitement"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="6">
+<Exp_Comparison op=":" initialTag="((date_creation) : (((dossiers) --> (dates))))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:1" typref="103245008" value="date_creation"/>
+<Binary_Exp op="-->" typref="3083833907">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1" typref="3603043417" value="dossiers"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:2" typref="3603043417" value="dates"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="7">
+<Exp_Comparison op=":" initialTag="((proprietaire) : (((dossiers) --> (employes))))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:1" typref="4017641513" value="proprietaire"/>
+<Binary_Exp op="-->" typref="2189467674">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:2:1" typref="3603043417" value="dossiers"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:2:2" typref="1585237810" value="employes"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="8">
+<Exp_Comparison op="&lt;:" initialTag="dates : POW( NAT)">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:6:1" typref="3603043417" value="dates"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:6:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="9">
+<Exp_Comparison op="&lt;:" initialTag="employes : POW( EMPLOYE)">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:5:1" typref="1585237810" value="employes"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:5:2" typref="1585237810" value="EMPLOYE"/>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="10">
+<Exp_Comparison op=":" initialTag="((nb_dossier) : (INT))">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:4:1" typref="2701647786" value="nb_dossier"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:4:2" typref="3603043417" value="INT"/>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="11">
+<Exp_Comparison op="&lt;:" initialTag="dossiers : POW( NAT)">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:3:1" typref="3603043417" value="dossiers"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:3:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="12">
+<Exp_Comparison op="&lt;:" initialTag="etat_traitement : POW( ETAT_TRAITEMENT)">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:2:1" typref="1614409389" value="etat_traitement"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:2:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="13">
+<Exp_Comparison op="&lt;:" initialTag="lib_traitement : POW( LIBELLE_TRAITEMENT)">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:1:1" typref="1657142084" value="lib_traitement"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:1:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
+</Exp_Comparison>
+</Local_Hyp>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="13"/>
+<Ref_Hyp num="12"/>
+<Ref_Hyp num="11"/>
+<Ref_Hyp num="10"/>
+<Ref_Hyp num="9"/>
+<Ref_Hyp num="8"/>
+<Ref_Hyp num="7"/>
+<Ref_Hyp num="6"/>
+<Ref_Hyp num="5"/>
+<Ref_Hyp num="4"/>
+<Ref_Hyp num="3"/>
+<Ref_Hyp num="2"/>
+</Nary_Pred>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:13:1:1" typref="2426838171" value="modification_etat"/>
+<Unary_Exp op="FIN">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:13:1:1" typref="2426838171" value="modification_etat"/>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessAssertions</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessInitialisation</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_Precondition_creerDossier</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Local_Hyp num="1">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:1:1" typref="4202345361" value="id_c"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:1:2" typref="1585237810" value="EMPLOYE"/>
+</Exp_Comparison>
+</Local_Hyp>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_creerDossier</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:1:1" typref="4202345361" value="id_c"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:1:2" typref="1585237810" value="EMPLOYE"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:1" typref="2701647786" value="date_c"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+</Nary_Pred>
+</Hypothesis>
+<Local_Hyp num="1">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:2:1:1:1" typref="2701647786" value="nouvd"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:3:1:2:1:1:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+</Local_Hyp>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_Precondition_tracerOperation</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Local_Hyp num="1">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:5:1" typref="1151142486" value="etat_op"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:5:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="2">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:4:1" typref="2199961173" value="lib_op"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:4:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="3">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:3:1" typref="2701647786" value="date"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:3:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="4">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:2:1" typref="4202345361" value="id_c"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:2:2" typref="1585237810" value="EMPLOYE"/>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="5">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:1:1" typref="2701647786" value="id_d"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:1:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+</Local_Hyp>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="5"/>
+<Ref_Hyp num="4"/>
+<Ref_Hyp num="3"/>
+<Ref_Hyp num="2"/>
+<Ref_Hyp num="1"/>
+</Nary_Pred>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:6:2:2" typref="2701647786" value="id_d"/>
+<Unary_Exp op="dom">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:6:2:1" typref="4017641513" value="proprietaire"/>
+</Unary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Binary_Pred op="=>">
+<Nary_Pred op="&amp;">
+<Ref_Hyp num="5"/>
+<Ref_Hyp num="4"/>
+<Ref_Hyp num="3"/>
+<Ref_Hyp num="2"/>
+<Ref_Hyp num="1"/>
+</Nary_Pred>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:6:2:1" typref="4017641513" value="proprietaire"/>
+<Binary_Exp op="+->">
+<Unary_Exp op="dom">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:6:2:1" typref="4017641513" value="proprietaire"/>
+</Unary_Exp>
+<Unary_Exp op="ran">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:6:2:1" typref="4017641513" value="proprietaire"/>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Binary_Pred>
+</Goal>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_tracerOperation</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:1:1" typref="2701647786" value="id_d"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:1:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:2:1" typref="4202345361" value="id_c"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:2:2" typref="1585237810" value="EMPLOYE"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:3:1" typref="2701647786" value="date"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:3:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:4:1" typref="2199961173" value="lib_op"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:4:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:5:1" typref="1151142486" value="etat_op"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:5:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
+</Exp_Comparison>
+<Exp_Comparison op="=">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:6:1" typref="4202345361" value="id_c"/>
+<Binary_Exp op="(" typref="4202345361">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:6:2:1" typref="4017641513" value="proprietaire"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:6:2:2" typref="2701647786" value="id_d"/>
+</Binary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Hypothesis>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:4:1:1:1:2" typref="2701647786" value="id_d"/>
+<Unary_Exp op="dom">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:4:1:1:1:1" typref="449032716" value="historique"/>
+</Unary_Exp>
+</Exp_Comparison>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:4:1:1:1:1" typref="449032716" value="historique"/>
+<Binary_Exp op="+->">
+<Unary_Exp op="dom">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:4:1:1:1:1" typref="449032716" value="historique"/>
+</Unary_Exp>
+<Unary_Exp op="ran">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:4:1:1:1:1" typref="449032716" value="historique"/>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Goal>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_Precondition_modifierEtatTraitement</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Local_Hyp num="1">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:2:1" typref="2701647786" value="ordre_m"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:2:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+</Local_Hyp>
+<Local_Hyp num="2">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:1:1" typref="2701647786" value="id_d"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:1:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+</Local_Hyp>
+</Proof_Obligation>
+<Proof_Obligation>
+<Comment>Operations dans une machine abstraite</Comment>
+<Tag>WellDefinedness_modifierEtatTraitement</Tag>
+<Tag>INVARIANT</Tag>
+<Definition name="B definitions"/>
+<Definition name="ctx"/>
+<Definition name="cst"/>
+<Definition name="lprp"/>
+<Definition name="inprp"/>
+<Definition name="inext"/>
+<Definition name="seext"/>
+<Definition name="inv"/>
+<Definition name="ass"/>
+<Hypothesis>
+<Nary_Pred op="&amp;">
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:1:1" typref="2701647786" value="id_d"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:1:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:2:1" typref="2701647786" value="ordre_m"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:2:2" typref="3603043417" value="NAT"/>
+</Exp_Comparison>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:3:1" typref="1151142486" value="nouv_etat"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:2:1:3:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
+</Exp_Comparison>
+</Nary_Pred>
+</Hypothesis>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:1:2" typref="2701647786" value="id_d"/>
+<Unary_Exp op="dom">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:1:1" typref="449032716" value="historique"/>
+</Unary_Exp>
+</Exp_Comparison>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:1:1" typref="449032716" value="historique"/>
+<Binary_Exp op="+->">
+<Unary_Exp op="dom">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:1:1" typref="449032716" value="historique"/>
+</Unary_Exp>
+<Unary_Exp op="ran">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:1:1" typref="449032716" value="historique"/>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:2:2:2" typref="2701647786" value="id_d"/>
+<Unary_Exp op="dom">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:2:2:1" typref="4017641513" value="proprietaire"/>
+</Unary_Exp>
+</Exp_Comparison>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:2:2:1" typref="4017641513" value="proprietaire"/>
+<Binary_Exp op="+->">
+<Unary_Exp op="dom">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:2:2:1" typref="4017641513" value="proprietaire"/>
+</Unary_Exp>
+<Unary_Exp op="ran">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:1:1:2:2:1" typref="4017641513" value="proprietaire"/>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Binary_Exp op="|->">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:2:1:1:2:1" typref="2701647786" value="ordre_m"/>
+<Binary_Exp op="(" typref="4202345361">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:2:1:1:2:2:1" typref="4017641513" value="proprietaire"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:2:1:1:2:2:2" typref="2701647786" value="id_d"/>
+</Binary_Exp>
+</Binary_Exp>
+<Unary_Exp op="dom">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:2:1:1:1" typref="1902706489" value="traitement_lib"/>
+</Unary_Exp>
+</Exp_Comparison>
+</Goal>
+</Simple_Goal>
+<Simple_Goal>
+<Tag>Well definedness</Tag>
+<Goal>
+<Exp_Comparison op=":">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:2:1:1:1" typref="1902706489" value="traitement_lib"/>
+<Binary_Exp op="+->">
+<Unary_Exp op="dom">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:2:1:1:1" typref="1902706489" value="traitement_lib"/>
+</Unary_Exp>
+<Unary_Exp op="ran">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:3:3:1:2:1:1:1" typref="1902706489" value="traitement_lib"/>
+</Unary_Exp>
+</Binary_Exp>
+</Exp_Comparison>
+</Goal>
+</Simple_Goal>
+</Proof_Obligation>
+<TypeInfos>
+<Type id="1585237810">
+<Unary_Exp op="POW">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:1:1:1" value="EMPLOYE"/>
+</Unary_Exp>
+</Type>
+<Type id="1657142084">
+<Unary_Exp op="POW">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:2:1:1" value="LIBELLE_TRAITEMENT"/>
+</Unary_Exp>
+</Type>
+<Type id="2199961173">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:3:1" value="LIBELLE_TRAITEMENT"/>
+</Type>
+<Type id="1614409389">
+<Unary_Exp op="POW">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:4:1:1" value="ETAT_TRAITEMENT"/>
+</Unary_Exp>
+</Type>
+<Type id="1151142486">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:5:1" value="ETAT_TRAITEMENT"/>
+</Type>
+<Type id="2701647786">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:6:1" value="INTEGER"/>
+</Type>
+<Type id="3603043417">
+<Unary_Exp op="POW">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:7:1:1" value="INTEGER"/>
+</Unary_Exp>
+</Type>
+<Type id="4017641513">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:8:1:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:8:1:1:2" value="EMPLOYE"/>
+</Binary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="103245008">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:9:1:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:9:1:1:2" value="INTEGER"/>
+</Binary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="2426838171">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:10:1:1:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:10:1:1:1:2" value="INTEGER"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:10:1:1:2" value="ETAT_TRAITEMENT"/>
+</Binary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="1902706489">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:11:1:1:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:11:1:1:1:2" value="EMPLOYE"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:11:1:1:2" value="LIBELLE_TRAITEMENT"/>
+</Binary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="2125782260">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:12:1:1:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:12:1:1:1:2" value="EMPLOYE"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:12:1:1:2" value="ETAT_TRAITEMENT"/>
+</Binary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="449032716">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:13:1:1:1" value="INTEGER"/>
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:13:1:1:2:1:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:13:1:1:2:1:1:2" value="EMPLOYE"/>
+</Binary_Exp>
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:13:1:1:2:1:2:1" value="LIBELLE_TRAITEMENT"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:13:1:1:2:1:2:2" value="ETAT_TRAITEMENT"/>
+</Binary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="2189467674">
+<Unary_Exp op="POW">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:14:1:1:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:14:1:1:1:2" value="EMPLOYE"/>
+</Binary_Exp>
+</Unary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="3083833907">
+<Unary_Exp op="POW">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:15:1:1:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:15:1:1:1:2" value="INTEGER"/>
+</Binary_Exp>
+</Unary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="610123304">
+<Unary_Exp op="POW">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:16:1:1:1:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:16:1:1:1:1:2" value="INTEGER"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:16:1:1:1:2" value="ETAT_TRAITEMENT"/>
+</Binary_Exp>
+</Unary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="1583668704">
+<Unary_Exp op="POW">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:17:1:1:1:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:17:1:1:1:1:2" value="EMPLOYE"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:17:1:1:1:2" value="LIBELLE_TRAITEMENT"/>
+</Binary_Exp>
+</Unary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="2066464527">
+<Unary_Exp op="POW">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:18:1:1:1:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:18:1:1:1:1:2" value="EMPLOYE"/>
+</Binary_Exp>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:18:1:1:1:2" value="ETAT_TRAITEMENT"/>
+</Binary_Exp>
+</Unary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="430301517">
+<Unary_Exp op="POW">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:19:1:1:1:1" value="INTEGER"/>
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:19:1:1:1:2:1:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:19:1:1:1:2:1:1:2" value="EMPLOYE"/>
+</Binary_Exp>
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:19:1:1:1:2:1:2:1" value="LIBELLE_TRAITEMENT"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:19:1:1:1:2:1:2:2" value="ETAT_TRAITEMENT"/>
+</Binary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="1464856135">
+<Unary_Exp op="POW">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:20:1:1:1:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:20:1:1:1:1:2" value="EMPLOYE"/>
+</Binary_Exp>
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:20:1:1:1:2:1" value="LIBELLE_TRAITEMENT"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:20:1:1:1:2:2" value="ETAT_TRAITEMENT"/>
+</Binary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="251958173">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:21:1:1:1" value="LIBELLE_TRAITEMENT"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:21:1:1:2" value="ETAT_TRAITEMENT"/>
+</Binary_Exp>
+</Unary_Exp>
+</Type>
+<Type id="3817003670">
+<Unary_Exp op="POW">
+<Generic_Type tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:22:1:1"/>
+</Unary_Exp>
+</Type>
+<Type id="4202345361">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:23:1" value="EMPLOYE"/>
+</Type>
+<Type id="4239954394">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:24:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:24:1:2" value="EMPLOYE"/>
+</Binary_Exp>
+</Type>
+<Type id="3672872563">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:25:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:25:1:2" value="INTEGER"/>
+</Binary_Exp>
+</Type>
+<Type id="457778364">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:26:1:1" value="LIBELLE_TRAITEMENT"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:26:1:2" value="ETAT_TRAITEMENT"/>
+</Binary_Exp>
+</Type>
+<Type id="1432952850">
+<Unary_Exp op="POW">
+<Binary_Exp op="*">
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:27:1:1:1:1" value="INTEGER"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:27:1:1:1:2" value="EMPLOYE"/>
+</Binary_Exp>
+<Binary_Exp op="*">
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:27:1:1:2:1" value="LIBELLE_TRAITEMENT"/>
+<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:8:27:1:1:2:2" value="ETAT_TRAITEMENT"/>
+</Binary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Type>
+</TypeInfos>
+</Proof_Obligations>

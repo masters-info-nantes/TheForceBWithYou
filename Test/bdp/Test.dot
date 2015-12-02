@@ -1,6 +1,0 @@
-digraph {
-Fichier [ label=" Fichier " shape= box ]
-pgcd_i [ label=" pgcd\npgcd_i " shape= box ]
-pgcd_r [ label=" pgcd\npgcd_r " shape= box ]
-
-}
