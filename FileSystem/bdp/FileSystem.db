@@ -7,11 +7,5 @@
         <component_file path="D:/AtelierB/FileSystem" name="dossier" suffix="mch" user="Woohyunnie">
             <component name="dossier" type="specification" />
         </component_file>
-        <component_file path="D:/AtelierB/FileSystem" name="employe" suffix="mch" user="Woohyunnie">
-            <component name="employe" type="specification" />
-        </component_file>
-        <component_file path="D:/AtelierB/FileSystem" name="entreprise" suffix="mch" user="Woohyunnie">
-            <component name="entreprise" type="specification" />
-        </component_file>
     </project>
 </db_xml>
