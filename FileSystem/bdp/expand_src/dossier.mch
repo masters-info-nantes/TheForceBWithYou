@@ -16,8 +16,6 @@ DEFINITIONS
     DOSSIER == NAT ;
     DATE == NAT
 ABSTRACT_VARIABLES
-    lib_traitement ,
-    etat_traitement ,
     dossiers ,
     employes ,
     dates ,
@@ -29,23 +27,19 @@ ABSTRACT_VARIABLES
     traitement_etat ,
     historique
 INVARIANT
-    lib_traitement <: LIBELLE_TRAITEMENT &
-    etat_traitement <: ETAT_TRAITEMENT &
     dossiers <: DOSSIER & /*ensemble des numéros de dossiers*/
-    nb_dossier : INT & /*nombre de dossiers*/
+    nb_dossier : NAT & /*nombre de dossiers*/
     employes <: EMPLOYE & /*ensemble des employes*/
     dates <: DATE & /*ensemble des dates de création de dossier*/
     proprietaire : dossiers --> employes & /* ensemble qui definit la relation dossier createur */
     date_creation : dossiers --> dates & /*ensemble qui definit la relation dossier date de creation*/
-    modification_etat : ( dossiers * dates ) +-> etat_traitement & /*ensemble qui definit la relation entre libele et etat*/
-    traitement_lib : ( dates * employes ) --> lib_traitement & /*ensemble qui definit la relation entre la date de modification et l'intitulé de la modification */
-    traitement_etat : ( dates * employes ) --> etat_traitement & /*ensemble qui définit la relation entre la date de modification et l'état de la modification*/
-    historique : dossiers --> ( ( dates * employes ) +-> ( lib_traitement * etat_traitement ) ) & /*ensemble qui definit la relation dossier traitement */
-    card ( modification_etat ) <= max_op &
+    modification_etat : ( dossiers * dates ) +-> ETAT_TRAITEMENT & /*ensemble qui definit la relation entre libele et etat*/
+    traitement_lib : ( dates * employes ) --> LIBELLE_TRAITEMENT & /*ensemble qui definit la relation entre la date de modification et l'intitulé de la modification */
+    traitement_etat : ( dates * employes ) --> ETAT_TRAITEMENT & /*ensemble qui définit la relation entre la date de modification et l'état de la modification*/
+    historique : dossiers --> ( ( dates * employes ) +-> ( LIBELLE_TRAITEMENT * ETAT_TRAITEMENT ) ) & /*ensemble qui definit la relation dossier traitement */
+    card ( historique ) <= max_op * card ( dossiers ) &
     dom ( traitement_lib ) = dom ( traitement_etat )
 INITIALISATION
-    lib_traitement := {} ||
-    etat_traitement := {} ||
     dossiers := {} ||
     employes := {} ||
     dates := {} ||
@@ -59,22 +53,34 @@ INITIALISATION
 OPERATIONS
     creerDossier ( id_c , date_c ) =
     PRE id_c : EMPLOYE & date_c : DATE
+        & card ( historique ) < max_op * card ( dossiers )
     THEN
-        ANY nouvd
+        ANY nouvd , tmp
         WHERE nouvd : DOSSIER & nouvd = nb_dossier + 1
+            & tmp : ( DATE * EMPLOYE ) +-> ( LIBELLE_TRAITEMENT * ETAT_TRAITEMENT )
+            & tmp = { ( date_c |-> id_c ) |-> ( creation |-> commence ) }
         THEN
-            proprietaire := proprietaire \/ { nouvd |-> id_c } ||
-            date_creation := date_creation \/ { nouvd |-> date_c }
+            proprietaire ( nouvd ) := id_c ||
+            date_creation ( nouvd ) := date_c ||
+            historique ( nouvd ) := tmp ||
+            nb_dossier := nouvd
         END
     END ;
 
-    tracerOperation ( id_d , id_c , date , lib_op , etat_op ) =
-    PRE id_d : DOSSIER & id_c : EMPLOYE & date : DATE & lib_op : LIBELLE_TRAITEMENT & etat_op : ETAT_TRAITEMENT & id_c = proprietaire ( id_d )
+    tracerOperation ( id_d , id_e , date , lib_op , etat_op ) =
+    PRE id_d : DOSSIER & id_e : EMPLOYE & date : DATE
+        & lib_op : LIBELLE_TRAITEMENT & etat_op : ETAT_TRAITEMENT
+        & card ( historique ( id_d ) ) < max_op
     THEN
-        modification_etat ( id_d , date ) := etat_op ||
-        traitement_lib ( date , id_c ) := lib_op ||
-        traitement_etat ( date , id_c ) := etat_op ||
-        historique ( id_d ) ( date , id_c ) := ( lib_op |-> etat_op )
+        ANY tmp
+        WHERE tmp : ( DATE * EMPLOYE ) +-> ( LIBELLE_TRAITEMENT * ETAT_TRAITEMENT )
+            & tmp = { ( date |-> id_e ) |-> ( lib_op |-> etat_op ) }
+        THEN
+            modification_etat ( id_d , date ) := etat_op ||
+            traitement_lib ( date , id_e ) := lib_op ||
+            traitement_etat ( date , id_e ) := etat_op ||
+            historique ( id_d ) := historique ( id_d ) \/ tmp
+        END
     END ;
 
     modifierEtatTraitement ( id_d , ordre_m , nouv_etat ) =
