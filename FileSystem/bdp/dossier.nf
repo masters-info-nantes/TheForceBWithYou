@@ -57,7 +57,7 @@ THEORY ListInvariantX IS
   Expanded_List_Invariant(Machine(dossier))==(btrue);
   Abstract_List_Invariant(Machine(dossier))==(btrue);
   Context_List_Invariant(Machine(dossier))==(btrue);
-  List_Invariant(Machine(dossier))==(dossiers <: NAT & nb_dossier: NAT & employes <: EMPLOYE & dates <: NAT & proprietaire: dossiers --> employes & date_creation: dossiers --> dates & modification_etat: dossiers*dates +-> ETAT_TRAITEMENT & traitement_lib: dates*employes --> LIBELLE_TRAITEMENT & traitement_etat: dates*employes --> ETAT_TRAITEMENT & historique: dossiers --> (dates*employes +-> LIBELLE_TRAITEMENT*ETAT_TRAITEMENT) & card(historique)<=max_op*card(dossiers) & dom(traitement_lib) = dom(traitement_etat))
+  List_Invariant(Machine(dossier))==(dossiers <: NAT & nb_dossier: NAT & employes <: EMPLOYE & dates <: NAT & proprietaire: dossiers --> employes & date_creation: dossiers --> dates & modification_etat: dossiers*dates +-> ETAT_TRAITEMENT & traitement_lib: dates*employes +-> LIBELLE_TRAITEMENT & traitement_etat: dates*employes +-> ETAT_TRAITEMENT & historique: dossiers --> (dates*employes +-> LIBELLE_TRAITEMENT*ETAT_TRAITEMENT) & card(historique)<=max_op*card(dossiers) & dom(traitement_lib) = dom(traitement_etat))
 END
 &
 THEORY ListAssertionsX IS
@@ -118,7 +118,7 @@ END
 THEORY ListOperationGuardX END
 &
 THEORY ListPreconditionX IS
-  List_Precondition(Machine(dossier),creerDossier)==(id_c: EMPLOYE & date_c: NAT & card(historique)<max_op*card(dossiers));
+  List_Precondition(Machine(dossier),creerDossier)==(id_c: EMPLOYE & date_c: NAT);
   List_Precondition(Machine(dossier),tracerOperation)==(id_d: NAT & id_e: EMPLOYE & date: NAT & lib_op: LIBELLE_TRAITEMENT & etat_op: ETAT_TRAITEMENT & card(historique(id_d))<max_op);
   List_Precondition(Machine(dossier),modifierEtatTraitement)==(id_d: NAT & ordre_m: NAT & nouv_etat: ETAT_TRAITEMENT)
 END
@@ -126,7 +126,7 @@ END
 THEORY ListSubstitutionX IS
   Expanded_List_Substitution(Machine(dossier),modifierEtatTraitement)==(id_d: NAT & ordre_m: NAT & nouv_etat: ETAT_TRAITEMENT | historique:=historique<+{id_d|->(historique(id_d)<+{(ordre_m,proprietaire(id_d))|->(traitement_lib(ordre_m,proprietaire(id_d))|->nouv_etat)})});
   Expanded_List_Substitution(Machine(dossier),tracerOperation)==(id_d: NAT & id_e: EMPLOYE & date: NAT & lib_op: LIBELLE_TRAITEMENT & etat_op: ETAT_TRAITEMENT & card(historique(id_d))<max_op | @tmp.(tmp: NAT*EMPLOYE +-> LIBELLE_TRAITEMENT*ETAT_TRAITEMENT & tmp = {date|->id_e|->(lib_op|->etat_op)} ==> modification_etat,traitement_lib,traitement_etat,historique:=modification_etat<+{(id_d,date)|->etat_op},traitement_lib<+{(date,id_e)|->lib_op},traitement_etat<+{(date,id_e)|->etat_op},historique<+{id_d|->(historique(id_d)\/tmp)}));
-  Expanded_List_Substitution(Machine(dossier),creerDossier)==(id_c: EMPLOYE & date_c: NAT & card(historique)<max_op*card(dossiers) | @(nouvd,tmp).(nouvd: NAT & nouvd = nb_dossier+1 & tmp: NAT*EMPLOYE +-> LIBELLE_TRAITEMENT*ETAT_TRAITEMENT & tmp = {date_c|->id_c|->(creation|->commence)} ==> proprietaire,date_creation,historique,nb_dossier:=proprietaire<+{nouvd|->id_c},date_creation<+{nouvd|->date_c},historique<+{nouvd|->tmp},nouvd));
+  Expanded_List_Substitution(Machine(dossier),creerDossier)==(id_c: EMPLOYE & date_c: NAT | @(nouvd,tmp).(nouvd: NAT & nouvd = nb_dossier+1 & tmp: NAT*EMPLOYE +-> LIBELLE_TRAITEMENT*ETAT_TRAITEMENT & tmp = {date_c|->id_c|->(creation|->commence)} ==> proprietaire,date_creation,historique,nb_dossier:=proprietaire<+{nouvd|->id_c},date_creation<+{nouvd|->date_c},historique<+{nouvd|->tmp},nouvd));
   List_Substitution(Machine(dossier),creerDossier)==(ANY nouvd,tmp WHERE nouvd: NAT & nouvd = nb_dossier+1 & tmp: NAT*EMPLOYE +-> LIBELLE_TRAITEMENT*ETAT_TRAITEMENT & tmp = {date_c|->id_c|->(creation|->commence)} THEN proprietaire(nouvd):=id_c || date_creation(nouvd):=date_c || historique(nouvd):=tmp || nb_dossier:=nouvd END);
   List_Substitution(Machine(dossier),tracerOperation)==(ANY tmp WHERE tmp: NAT*EMPLOYE +-> LIBELLE_TRAITEMENT*ETAT_TRAITEMENT & tmp = {date|->id_e|->(lib_op|->etat_op)} THEN modification_etat(id_d,date):=etat_op || traitement_lib(date,id_e):=lib_op || traitement_etat(date,id_e):=etat_op || historique(id_d):=historique(id_d)\/tmp END);
   List_Substitution(Machine(dossier),modifierEtatTraitement)==(historique(id_d)(ordre_m,proprietaire(id_d)):=traitement_lib(ordre_m,proprietaire(id_d))|->nouv_etat)
@@ -193,7 +193,7 @@ THEORY ConstantsEnvX IS
 END
 &
 THEORY VariablesEnvX IS
-  Variables(Machine(dossier)) == (Type(historique) == Mvl(SetOf(btype(INTEGER,?,?)*SetOf(btype(INTEGER,?,?)*atype(EMPLOYE,?,?)*(etype(LIBELLE_TRAITEMENT,?,?)*etype(ETAT_TRAITEMENT,?,?)))));Type(traitement_etat) == Mvl(SetOf(btype(INTEGER,?,?)*atype(EMPLOYE,?,?)*etype(ETAT_TRAITEMENT,0,2)));Type(traitement_lib) == Mvl(SetOf(btype(INTEGER,?,?)*atype(EMPLOYE,?,?)*etype(LIBELLE_TRAITEMENT,0,2)));Type(modification_etat) == Mvl(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?)*etype(ETAT_TRAITEMENT,?,?)));Type(date_creation) == Mvl(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?)));Type(proprietaire) == Mvl(SetOf(btype(INTEGER,?,?)*atype(EMPLOYE,?,?)));Type(nb_dossier) == Mvl(btype(INTEGER,?,?));Type(dates) == Mvl(SetOf(btype(INTEGER,?,?)));Type(employes) == Mvl(SetOf(atype(EMPLOYE,?,?)));Type(dossiers) == Mvl(SetOf(btype(INTEGER,?,?))))
+  Variables(Machine(dossier)) == (Type(historique) == Mvl(SetOf(btype(INTEGER,?,?)*SetOf(btype(INTEGER,?,?)*atype(EMPLOYE,?,?)*(etype(LIBELLE_TRAITEMENT,?,?)*etype(ETAT_TRAITEMENT,?,?)))));Type(traitement_etat) == Mvl(SetOf(btype(INTEGER,?,?)*atype(EMPLOYE,?,?)*etype(ETAT_TRAITEMENT,?,?)));Type(traitement_lib) == Mvl(SetOf(btype(INTEGER,?,?)*atype(EMPLOYE,?,?)*etype(LIBELLE_TRAITEMENT,?,?)));Type(modification_etat) == Mvl(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?)*etype(ETAT_TRAITEMENT,?,?)));Type(date_creation) == Mvl(SetOf(btype(INTEGER,?,?)*btype(INTEGER,?,?)));Type(proprietaire) == Mvl(SetOf(btype(INTEGER,?,?)*atype(EMPLOYE,?,?)));Type(nb_dossier) == Mvl(btype(INTEGER,?,?));Type(dates) == Mvl(SetOf(btype(INTEGER,?,?)));Type(employes) == Mvl(SetOf(atype(EMPLOYE,?,?)));Type(dossiers) == Mvl(SetOf(btype(INTEGER,?,?))))
 END
 &
 THEORY OperationsEnvX IS

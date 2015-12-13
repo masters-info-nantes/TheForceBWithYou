@@ -19,8 +19,8 @@
 </Define>
 <Define merge="=" name="ctx"/>
 <Define merge="=" name="seext"/>
-<Define merge="=" name="inv">
-<Nary_Pred op="&amp;" translate="dossiers : POW( NAT) &amp; ((nb_dossier) : (NAT)) &amp; employes : POW( EMPLOYE) &amp; dates : POW( NAT) &amp; proprietaire : dossiers +-> employes &amp; dom(proprietaire) = dossiers &amp; ((proprietaire) : (((dossiers) --> (employes)))) &amp; date_creation : dossiers +-> dates &amp; dom(date_creation) = dossiers &amp; ((date_creation) : (((dossiers) --> (dates)))) &amp; ((modification_etat) : ((((dossiers * dates)) +-> (ETAT_TRAITEMENT)))) &amp; traitement_lib : (dates * employes) +-> LIBELLE_TRAITEMENT &amp; dom(traitement_lib) = (dates * employes) &amp; ((traitement_lib) : ((((dates * employes)) --> (LIBELLE_TRAITEMENT)))) &amp; traitement_etat : (dates * employes) +-> ETAT_TRAITEMENT &amp; dom(traitement_etat) = (dates * employes) &amp; ((traitement_etat) : ((((dates * employes)) --> (ETAT_TRAITEMENT)))) &amp; historique : dossiers +-> (((dates * employes)) +-> ((LIBELLE_TRAITEMENT * ETAT_TRAITEMENT))) &amp; dom(historique) = dossiers &amp; ((historique) : (((dossiers) --> ((((dates * employes)) +-> ((LIBELLE_TRAITEMENT * ETAT_TRAITEMENT))))))) &amp; (card(historique) &lt;= (max_op * card(dossiers))) &amp; ((dom(traitement_lib)) = (dom(traitement_etat)))">
+<Define merge="+" name="inv">
+<Nary_Pred op="&amp;" translate="dossiers : POW( NAT) &amp; ((nb_dossier) : (NAT)) &amp; employes : POW( EMPLOYE) &amp; dates : POW( NAT) &amp; proprietaire : dossiers +-> employes &amp; dom(proprietaire) = dossiers &amp; ((proprietaire) : (((dossiers) --> (employes)))) &amp; date_creation : dossiers +-> dates &amp; dom(date_creation) = dossiers &amp; ((date_creation) : (((dossiers) --> (dates)))) &amp; ((modification_etat) : ((((dossiers * dates)) +-> (ETAT_TRAITEMENT)))) &amp; ((traitement_lib) : ((((dates * employes)) +-> (LIBELLE_TRAITEMENT)))) &amp; ((traitement_etat) : ((((dates * employes)) +-> (ETAT_TRAITEMENT)))) &amp; historique : dossiers +-> (((dates * employes)) +-> ((LIBELLE_TRAITEMENT * ETAT_TRAITEMENT))) &amp; dom(historique) = dossiers &amp; ((historique) : (((dossiers) --> ((((dates * employes)) +-> ((LIBELLE_TRAITEMENT * ETAT_TRAITEMENT))))))) &amp; (card(historique) &lt;= (max_op * card(dossiers))) &amp; ((dom(traitement_lib)) = (dom(traitement_etat)))">
 <Exp_Comparison op="&lt;:" initialTag="dossiers : POW( NAT)">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:1:1" typref="3603043417" value="dossiers"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:1:2" typref="3603043417" value="NAT"/>
@@ -61,9 +61,9 @@
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:2:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
 </Binary_Exp>
 </Exp_Comparison>
-<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) --> (LIBELLE_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) +-> (LIBELLE_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:1" typref="1902706489" value="traitement_lib"/>
-<Binary_Exp op="-->" typref="1583668704">
+<Binary_Exp op="+->" typref="1583668704">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:2" typref="1585237810" value="employes"/>
@@ -71,9 +71,9 @@
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
 </Binary_Exp>
 </Exp_Comparison>
-<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) --> (ETAT_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) +-> (ETAT_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:1" typref="2125782260" value="traitement_etat"/>
-<Binary_Exp op="-->" typref="2066464527">
+<Binary_Exp op="+->" typref="2066464527">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:2" typref="1585237810" value="employes"/>
@@ -175,7 +175,6 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Proved(0)" methodList="pr" passList="Force(0),?"/>
 </Simple_Goal>
 <Simple_Goal merge="1">
 <Tag>Invariant is preserved</Tag>
@@ -188,7 +187,6 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Proved(0)" methodList="pr" passList="Force(0),?"/>
 </Simple_Goal>
 <Simple_Goal merge="2">
 <Tag>Invariant is preserved</Tag>
@@ -234,16 +232,15 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Proved(0)" methodList="pr" passList="Force(0),?"/>
 </Simple_Goal>
 <Simple_Goal merge="5">
 <Tag>Invariant is preserved</Tag>
 <Goal>
 <Binary_Pred op="=>">
 <Ref_Hyp num="1"/>
-<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) --> (LIBELLE_TRAITEMENT))))" goalTag="Invariant is preserved">
+<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) +-> (LIBELLE_TRAITEMENT))))" goalTag="Invariant is preserved">
 <EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:8:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:8:1:1" typref="1902706489"/>
-<Binary_Exp op="-->" typref="1583668704">
+<Binary_Exp op="+->" typref="1583668704">
 <Binary_Exp op="*" typref="4017641513">
 <EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:3:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:3:1:1" typref="3603043417"/>
 <EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:2:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:2,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:2:1:1" typref="1585237810"/>
@@ -256,25 +253,6 @@
 <Proof_State proofState="Proved(0)" methodList="pr" passList="Force(0),?"/>
 </Simple_Goal>
 <Simple_Goal merge="6">
-<Tag>Invariant is preserved</Tag>
-<Goal>
-<Binary_Pred op="=>">
-<Ref_Hyp num="1"/>
-<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) --> (ETAT_TRAITEMENT))))" goalTag="Invariant is preserved">
-<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:9:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:9:1:1" typref="2125782260"/>
-<Binary_Exp op="-->" typref="2066464527">
-<Binary_Exp op="*" typref="4017641513">
-<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:3:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:3:1:1" typref="3603043417"/>
-<EmptySet tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:2:2:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:2,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:6:1:2:1:1" typref="1585237810"/>
-</Binary_Exp>
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
-</Binary_Exp>
-</Exp_Comparison>
-</Binary_Pred>
-</Goal>
-<Proof_State proofState="Proved(0)" methodList="pr" passList="Force(0),?"/>
-</Simple_Goal>
-<Simple_Goal merge="7">
 <Tag>Invariant is preserved</Tag>
 <Goal>
 <Binary_Pred op="=>">
@@ -297,7 +275,6 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Proved(0)" methodList="pr" passList="Force(0),?"/>
 </Simple_Goal>
 <Simple_Goal merge="">
 <Tag>Invariant is preserved</Tag>
@@ -317,10 +294,10 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Proved(0)" methodList="pr" passList="Force(0),?"/>
+<Proof_State proofState="Unproved" methodList="?" passList="Force(0),?"/>
 </Simple_Goal>
 </Proof_Obligation>
-<Proof_Obligation merge="-">
+<Proof_Obligation merge="+">
 <Comment>Operations dans une machine abstraite</Comment>
 <Tag>creerDossier</Tag>
 <Tag>INVARIANT</Tag>
@@ -342,17 +319,6 @@
 <Exp_Comparison op=":">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:1" typref="2701647786" value="date_c"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:2" typref="3603043417" value="NAT"/>
-</Exp_Comparison>
-<Exp_Comparison op="&lt;">
-<Unary_Exp op="card" typref="2701647786">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:1:1" typref="449032716" value="historique"/>
-</Unary_Exp>
-<Binary_Exp op="*" typref="2701647786">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:2:1" typref="2701647786" value="max_op"/>
-<Unary_Exp op="card" typref="2701647786">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:2:2:1" typref="3603043417" value="dossiers"/>
-</Unary_Exp>
-</Binary_Exp>
 </Exp_Comparison>
 </Nary_Pred>
 </Hypothesis>
@@ -427,7 +393,6 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Unproved" methodList="pr" passList="Force(0),?"/>
 </Simple_Goal>
 <Simple_Goal merge="1">
 <Tag>Invariant is preserved</Tag>
@@ -454,7 +419,6 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Unproved" methodList="pr" passList="Force(0),?"/>
 </Simple_Goal>
 <Simple_Goal merge="2">
 <Tag>Invariant is preserved</Tag>
@@ -490,9 +454,8 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Unproved" methodList="pr" passList="Force(0),(?; 0; 1)"/>
 </Simple_Goal>
-<Simple_Goal merge="3">
+<Simple_Goal merge="">
 <Tag>Invariant is preserved</Tag>
 <Goal>
 <Binary_Pred op="=>">
@@ -521,10 +484,10 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Unproved" methodList="pr" passList="Force(0),(?; 0; 1)"/>
+<Proof_State proofState="Unproved" methodList="?" passList="Force(0),?"/>
 </Simple_Goal>
 </Proof_Obligation>
-<Proof_Obligation merge="=">
+<Proof_Obligation merge="+">
 <Comment>Operations dans une machine abstraite</Comment>
 <Tag>tracerOperation</Tag>
 <Tag>INVARIANT</Tag>
@@ -636,7 +599,6 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Unproved" methodList="pr" passList="Force(0),(?; 0; 1)"/>
 </Simple_Goal>
 <Simple_Goal merge="1">
 <Tag>Invariant is preserved</Tag>
@@ -646,7 +608,7 @@
 <Ref_Hyp num="2"/>
 <Ref_Hyp num="1"/>
 </Nary_Pred>
-<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) --> (LIBELLE_TRAITEMENT))))" goalTag="Invariant is preserved">
+<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) +-> (LIBELLE_TRAITEMENT))))" goalTag="Invariant is preserved">
 <Binary_Exp op="&lt;+" tag=",D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:3:1:2:1:1:1" typref="1902706489">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:3:1:2:1:1:1" typref="1902706489" value="traitement_lib" fixed="false"/>
 <Nary_Exp op="{">
@@ -659,7 +621,7 @@
 </Binary_Exp>
 </Nary_Exp>
 </Binary_Exp>
-<Binary_Exp op="-->" typref="1583668704">
+<Binary_Exp op="+->" typref="1583668704">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:2" typref="1585237810" value="employes"/>
@@ -669,7 +631,7 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Unproved" methodList="pr" passList="Force(0),(?; 0; 1)"/>
+<Proof_State proofState="Proved(0)" methodList="pr" passList="Force(0),?"/>
 </Simple_Goal>
 <Simple_Goal merge="2">
 <Tag>Invariant is preserved</Tag>
@@ -679,7 +641,7 @@
 <Ref_Hyp num="2"/>
 <Ref_Hyp num="1"/>
 </Nary_Pred>
-<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) --> (ETAT_TRAITEMENT))))" goalTag="Invariant is preserved">
+<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) +-> (ETAT_TRAITEMENT))))" goalTag="Invariant is preserved">
 <Binary_Exp op="&lt;+" tag=",D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:1,D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:3:1:3:1:1:1" typref="2125782260">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:3:1:3:1:3:1:1:1" typref="2125782260" value="traitement_etat" fixed="false"/>
 <Nary_Exp op="{">
@@ -692,7 +654,7 @@
 </Binary_Exp>
 </Nary_Exp>
 </Binary_Exp>
-<Binary_Exp op="-->" typref="2066464527">
+<Binary_Exp op="+->" typref="2066464527">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:2" typref="1585237810" value="employes"/>
@@ -702,7 +664,7 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Unproved" methodList="pr" passList="Force(0),(?; 0; 1)"/>
+<Proof_State proofState="Proved(0)" methodList="pr" passList="Force(0),?"/>
 </Simple_Goal>
 <Simple_Goal merge="3">
 <Tag>Invariant is preserved</Tag>
@@ -744,7 +706,6 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Unproved" methodList="pr" passList="Force(0),(?; 0; 1)"/>
 </Simple_Goal>
 <Simple_Goal merge="">
 <Tag>Invariant is preserved</Tag>
@@ -781,9 +742,9 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Unproved" methodList="pr" passList="Force(0),(?; 0; 1)"/>
+<Proof_State proofState="Unproved" methodList="?" passList="Force(0),?"/>
 </Simple_Goal>
-<Simple_Goal merge="5">
+<Simple_Goal merge="4">
 <Tag>Invariant is preserved</Tag>
 <Goal>
 <Binary_Pred op="=>">
@@ -823,10 +784,9 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Unproved" methodList="pr" passList="Force(0),(?; 0; 1)"/>
 </Simple_Goal>
 </Proof_Obligation>
-<Proof_Obligation merge="=">
+<Proof_Obligation merge="+">
 <Comment>Operations dans une machine abstraite</Comment>
 <Tag>modifierEtatTraitement</Tag>
 <Tag>INVARIANT</Tag>
@@ -918,7 +878,6 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Unproved" methodList="pr" passList="Force(0),(?; 0; 1)"/>
 </Simple_Goal>
 <Simple_Goal merge="">
 <Tag>Invariant is preserved</Tag>
@@ -975,7 +934,7 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Unproved" methodList="pr" passList="Force(0),(?; 0; 1)"/>
+<Proof_State proofState="Unproved" methodList="?" passList="Force(0),?"/>
 </Simple_Goal>
 </Proof_Obligation>
 <Proof_Obligation merge="=">
@@ -1049,9 +1008,9 @@
 </Exp_Comparison>
 </Local_Hyp>
 <Local_Hyp num="3">
-<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) --> (ETAT_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) +-> (ETAT_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:1" typref="2125782260" value="traitement_etat"/>
-<Binary_Exp op="-->" typref="2066464527">
+<Binary_Exp op="+->" typref="2066464527">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:2" typref="1585237810" value="employes"/>
@@ -1061,9 +1020,9 @@
 </Exp_Comparison>
 </Local_Hyp>
 <Local_Hyp num="4">
-<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) --> (LIBELLE_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) +-> (LIBELLE_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:1" typref="1902706489" value="traitement_lib"/>
-<Binary_Exp op="-->" typref="1583668704">
+<Binary_Exp op="+->" typref="1583668704">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:2" typref="1585237810" value="employes"/>
@@ -1150,7 +1109,6 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Unproved" methodList="pr" passList="Force(0),(?; 0; 1)"/>
 </Simple_Goal>
 <Simple_Goal merge="">
 <Tag>Well definedness</Tag>
@@ -1176,10 +1134,9 @@
 </Exp_Comparison>
 </Binary_Pred>
 </Goal>
-<Proof_State proofState="Proved(0)" methodList="pr" passList="Force(0),?"/>
 </Simple_Goal>
 </Proof_Obligation>
-<Proof_Obligation merge="=">
+<Proof_Obligation merge="+">
 <Tag>WellDefinednessAssertions</Tag>
 <Definition name="B definitions"/>
 <Definition name="ctx"/>
@@ -1200,7 +1157,7 @@
 <Definition name="inext"/>
 <Definition name="seext"/>
 </Proof_Obligation>
-<Proof_Obligation merge="=">
+<Proof_Obligation merge="+">
 <Comment>Operations dans une machine abstraite</Comment>
 <Tag>WellDefinedness_Precondition_creerDossier</Tag>
 <Tag>INVARIANT</Tag>
@@ -1215,52 +1172,12 @@
 <Definition name="ass"/>
 <Local_Hyp num="1">
 <Exp_Comparison op=":">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:1" typref="2701647786" value="date_c"/>
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:2" typref="3603043417" value="NAT"/>
-</Exp_Comparison>
-</Local_Hyp>
-<Local_Hyp num="2">
-<Exp_Comparison op=":">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:1:1" typref="4202345361" value="id_c"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:1:2" typref="1585237810" value="EMPLOYE"/>
 </Exp_Comparison>
 </Local_Hyp>
-<Simple_Goal merge="">
-<Tag>Well definedness</Tag>
-<Goal>
-<Binary_Pred op="=>">
-<Nary_Pred op="&amp;">
-<Ref_Hyp num="2"/>
-<Ref_Hyp num="1"/>
-</Nary_Pred>
-<Exp_Comparison op=":">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:1:1" typref="449032716" value="historique"/>
-<Unary_Exp op="FIN">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:1:1" typref="449032716" value="historique"/>
-</Unary_Exp>
-</Exp_Comparison>
-</Binary_Pred>
-</Goal>
-</Simple_Goal>
-<Simple_Goal merge="">
-<Tag>Well definedness</Tag>
-<Goal>
-<Binary_Pred op="=>">
-<Nary_Pred op="&amp;">
-<Ref_Hyp num="2"/>
-<Ref_Hyp num="1"/>
-</Nary_Pred>
-<Exp_Comparison op=":">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:2:2:1" typref="3603043417" value="dossiers"/>
-<Unary_Exp op="FIN">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:2:2:1" typref="3603043417" value="dossiers"/>
-</Unary_Exp>
-</Exp_Comparison>
-</Binary_Pred>
-</Goal>
-</Simple_Goal>
 </Proof_Obligation>
-<Proof_Obligation merge="-">
+<Proof_Obligation merge="+">
 <Comment>Operations dans une machine abstraite</Comment>
 <Tag>WellDefinedness_creerDossier</Tag>
 <Tag>INVARIANT</Tag>
@@ -1282,17 +1199,6 @@
 <Exp_Comparison op=":">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:1" typref="2701647786" value="date_c"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:2" typref="3603043417" value="NAT"/>
-</Exp_Comparison>
-<Exp_Comparison op="&lt;">
-<Unary_Exp op="card" typref="2701647786">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:1:1" typref="449032716" value="historique"/>
-</Unary_Exp>
-<Binary_Exp op="*" typref="2701647786">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:2:1" typref="2701647786" value="max_op"/>
-<Unary_Exp op="card" typref="2701647786">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:2:2:1" typref="3603043417" value="dossiers"/>
-</Unary_Exp>
-</Binary_Exp>
 </Exp_Comparison>
 </Nary_Pred>
 </Hypothesis>
@@ -1327,7 +1233,7 @@
 </Exp_Comparison>
 </Local_Hyp>
 </Proof_Obligation>
-<Proof_Obligation merge="=">
+<Proof_Obligation merge="+">
 <Comment>Operations dans une machine abstraite</Comment>
 <Tag>WellDefinedness_Precondition_tracerOperation</Tag>
 <Tag>INVARIANT</Tag>
@@ -1370,7 +1276,7 @@
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:2:2:1:1:2" typref="3603043417" value="NAT"/>
 </Exp_Comparison>
 </Local_Hyp>
-<Simple_Goal merge="">
+<Simple_Goal merge="0">
 <Tag>Well definedness</Tag>
 <Goal>
 <Binary_Pred op="=>">
@@ -1390,7 +1296,7 @@
 </Binary_Pred>
 </Goal>
 </Simple_Goal>
-<Simple_Goal merge="">
+<Simple_Goal merge="1">
 <Tag>Well definedness</Tag>
 <Goal>
 <Binary_Pred op="=>">
@@ -1415,7 +1321,7 @@
 </Binary_Pred>
 </Goal>
 </Simple_Goal>
-<Simple_Goal merge="">
+<Simple_Goal merge="2">
 <Tag>Well definedness</Tag>
 <Goal>
 <Binary_Pred op="=>">
@@ -1442,7 +1348,7 @@
 </Goal>
 </Simple_Goal>
 </Proof_Obligation>
-<Proof_Obligation merge="=">
+<Proof_Obligation merge="+">
 <Comment>Operations dans une machine abstraite</Comment>
 <Tag>WellDefinedness_tracerOperation</Tag>
 <Tag>INVARIANT</Tag>
@@ -1504,7 +1410,7 @@
 </Exp_Comparison>
 </Local_Hyp>
 </Proof_Obligation>
-<Proof_Obligation merge="=">
+<Proof_Obligation merge="+">
 <Comment>Operations dans une machine abstraite</Comment>
 <Tag>WellDefinedness_Precondition_modifierEtatTraitement</Tag>
 <Tag>INVARIANT</Tag>
@@ -1530,7 +1436,7 @@
 </Exp_Comparison>
 </Local_Hyp>
 </Proof_Obligation>
-<Proof_Obligation merge="=">
+<Proof_Obligation merge="+">
 <Comment>Operations dans une machine abstraite</Comment>
 <Tag>WellDefinedness_modifierEtatTraitement</Tag>
 <Tag>INVARIANT</Tag>

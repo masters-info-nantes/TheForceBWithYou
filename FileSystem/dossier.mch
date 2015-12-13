@@ -1,7 +1,3 @@
-/* dossier
- * Author: Woohyunnie
- * Creation date: 18/11/2015
- */
 MACHINE
     dossier
 SETS
@@ -30,13 +26,13 @@ INVARIANT
     dossiers <: DOSSIER & /*ensemble des numéros de dossiers*/
     nb_dossier : NAT & /*nombre de dossiers*/
     employes <: EMPLOYE & /*ensemble des employes*/
-    dates <: DATE & /*ensemble des dates de création de dossier*/
+    dates <: DATE & /*ensemble des dates de création et de modification des dossiers*/
     proprietaire : dossiers --> employes & /* ensemble qui definit la relation dossier createur */
     date_creation : dossiers --> dates & /*ensemble qui definit la relation dossier date de creation*/
-    modification_etat : (dossiers * dates) +-> ETAT_TRAITEMENT  & /*ensemble qui definit la relation entre libele et etat*/
-    traitement_lib : (dates * employes) --> LIBELLE_TRAITEMENT & /*ensemble qui definit la relation entre la date de modification et l'intitulé de la modification */
-    traitement_etat : (dates * employes) --> ETAT_TRAITEMENT & /*ensemble qui définit la relation entre la date de modification et l'état de la modification*/
-    historique : dossiers --> ((dates * employes) +-> (LIBELLE_TRAITEMENT * ETAT_TRAITEMENT)) &/*ensemble qui definit la relation dossier traitement */
+    modification_etat : (dossiers * dates) +-> ETAT_TRAITEMENT  & /*ensemble qui definit la relation entre un dossier, une date et un etat*/
+    traitement_lib : (dates * employes) +-> LIBELLE_TRAITEMENT & /*ensemble qui definit la relation entre la date de modification et l'intitulé de la modification */
+    traitement_etat : (dates * employes) +-> ETAT_TRAITEMENT & /*ensemble qui définit la relation entre la date de modification et l'état de la modification*/
+    historique : dossiers --> ((dates * employes) +-> (LIBELLE_TRAITEMENT * ETAT_TRAITEMENT)) &/*ensemble qui definit la relation dossier traitement(modification de l'état et intitulé du changement) */
     card(historique) <= max_op*card(dossiers) &
     dom(traitement_lib) = dom(traitement_etat)
 INITIALISATION
@@ -53,7 +49,6 @@ INITIALISATION
 OPERATIONS
     creerDossier(id_c,date_c)=
     PRE id_c : EMPLOYE & date_c : DATE
-        & card(historique) < max_op*card(dossiers)
     THEN
         ANY nouvd, tmp 
         WHERE nouvd: DOSSIER & nouvd = nb_dossier + 1 

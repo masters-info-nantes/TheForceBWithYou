@@ -61,9 +61,9 @@
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:2:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
 </Binary_Exp>
 </Exp_Comparison>
-<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) --&gt; (LIBELLE_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) +-&gt; (LIBELLE_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:1" typref="1902706489" value="traitement_lib"/>
-<Binary_Exp op="--&gt;" typref="1583668704">
+<Binary_Exp op="+-&gt;" typref="1583668704">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:2" typref="1585237810" value="employes"/>
@@ -71,9 +71,9 @@
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
 </Binary_Exp>
 </Exp_Comparison>
-<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) --&gt; (ETAT_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) +-&gt; (ETAT_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:1" typref="2125782260" value="traitement_etat"/>
-<Binary_Exp op="--&gt;" typref="2066464527">
+<Binary_Exp op="+-&gt;" typref="2066464527">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:2" typref="1585237810" value="employes"/>
@@ -292,9 +292,9 @@
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:2:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
 </Binary_Exp>
 </Exp_Comparison>
-<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) --&gt; (LIBELLE_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) +-&gt; (LIBELLE_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:1" typref="1902706489" value="traitement_lib"/>
-<Binary_Exp op="--&gt;" typref="1583668704">
+<Binary_Exp op="+-&gt;" typref="1583668704">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:2" typref="1585237810" value="employes"/>
@@ -302,9 +302,9 @@
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
 </Binary_Exp>
 </Exp_Comparison>
-<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) --&gt; (ETAT_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) +-&gt; (ETAT_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:1" typref="2125782260" value="traitement_etat"/>
-<Binary_Exp op="--&gt;" typref="2066464527">
+<Binary_Exp op="+-&gt;" typref="2066464527">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:2" typref="1585237810" value="employes"/>
@@ -376,17 +376,6 @@
 <Exp_Comparison op=":">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:1" typref="2701647786" value="date_c"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:2" typref="3603043417" value="NAT"/>
-</Exp_Comparison>
-<Exp_Comparison op="&lt;">
-<Unary_Exp op="card" typref="2701647786">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:1:1" typref="449032716" value="historique"/>
-</Unary_Exp>
-<Binary_Exp op="*" typref="2701647786">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:2:1" typref="2701647786" value="max_op"/>
-<Unary_Exp op="card" typref="2701647786">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:2:2:1" typref="3603043417" value="dossiers"/>
-</Unary_Exp>
-</Binary_Exp>
 </Exp_Comparison>
 </Nary_Pred>
 </Hypothesis>
@@ -546,9 +535,9 @@
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:2:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
 </Binary_Exp>
 </Exp_Comparison>
-<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) --&gt; (LIBELLE_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) +-&gt; (LIBELLE_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:1" typref="1902706489" value="traitement_lib"/>
-<Binary_Exp op="--&gt;" typref="1583668704">
+<Binary_Exp op="+-&gt;" typref="1583668704">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:2" typref="1585237810" value="employes"/>
@@ -556,9 +545,9 @@
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
 </Binary_Exp>
 </Exp_Comparison>
-<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) --&gt; (ETAT_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) +-&gt; (ETAT_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:1" typref="2125782260" value="traitement_etat"/>
-<Binary_Exp op="--&gt;" typref="2066464527">
+<Binary_Exp op="+-&gt;" typref="2066464527">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:2" typref="1585237810" value="employes"/>
@@ -821,9 +810,9 @@
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:2:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
 </Binary_Exp>
 </Exp_Comparison>
-<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) --&gt; (LIBELLE_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) +-&gt; (LIBELLE_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:1" typref="1902706489" value="traitement_lib"/>
-<Binary_Exp op="--&gt;" typref="1583668704">
+<Binary_Exp op="+-&gt;" typref="1583668704">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:2" typref="1585237810" value="employes"/>
@@ -831,9 +820,9 @@
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
 </Binary_Exp>
 </Exp_Comparison>
-<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) --&gt; (ETAT_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) +-&gt; (ETAT_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:1" typref="2125782260" value="traitement_etat"/>
-<Binary_Exp op="--&gt;" typref="2066464527">
+<Binary_Exp op="+-&gt;" typref="2066464527">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:2" typref="1585237810" value="employes"/>
@@ -1004,9 +993,9 @@
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:7:2:2" typref="1614409389" value="ETAT_TRAITEMENT"/>
 </Binary_Exp>
 </Exp_Comparison>
-<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) --&gt; (LIBELLE_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) +-&gt; (LIBELLE_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:1" typref="1902706489" value="traitement_lib"/>
-<Binary_Exp op="--&gt;" typref="1583668704">
+<Binary_Exp op="+-&gt;" typref="1583668704">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:2" typref="1585237810" value="employes"/>
@@ -1014,9 +1003,9 @@
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:2" typref="1657142084" value="LIBELLE_TRAITEMENT"/>
 </Binary_Exp>
 </Exp_Comparison>
-<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) --&gt; (ETAT_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) +-&gt; (ETAT_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:1" typref="2125782260" value="traitement_etat"/>
-<Binary_Exp op="--&gt;" typref="2066464527">
+<Binary_Exp op="+-&gt;" typref="2066464527">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:2" typref="1585237810" value="employes"/>
@@ -1232,9 +1221,9 @@
 </Binary_Pred>
 </Binary_Pred>
 <Binary_Pred op="=&gt;">
-<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) --&gt; (LIBELLE_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_lib) : ((((dates * employes)) +-&gt; (LIBELLE_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:1" typref="1902706489" value="traitement_lib"/>
-<Binary_Exp op="--&gt;" typref="1583668704">
+<Binary_Exp op="+-&gt;" typref="1583668704">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:8:2:1:2" typref="1585237810" value="employes"/>
@@ -1254,9 +1243,9 @@
 </Binary_Pred>
 </Binary_Pred>
 <Binary_Pred op="=&gt;">
-<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) --&gt; (ETAT_TRAITEMENT))))">
+<Exp_Comparison op=":" initialTag="((traitement_etat) : ((((dates * employes)) +-&gt; (ETAT_TRAITEMENT))))">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:1" typref="2125782260" value="traitement_etat"/>
-<Binary_Exp op="--&gt;" typref="2066464527">
+<Binary_Exp op="+-&gt;" typref="2066464527">
 <Binary_Exp op="*" typref="4017641513">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:1" typref="3603043417" value="dates"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:5:1:9:2:1:2" typref="1585237810" value="employes"/>
@@ -1451,37 +1440,6 @@
 <Nary_Pred op="&amp;"/>
 <Nary_Pred op="&amp;"/>
 </Binary_Pred>
-<Binary_Pred op="=&gt;">
-<Exp_Comparison op=":">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:1" typref="2701647786" value="date_c"/>
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:2" typref="3603043417" value="NAT"/>
-</Exp_Comparison>
-<Nary_Pred op="&amp;">
-<Binary_Pred op="&amp;">
-<Nary_Pred op="&amp;">
-<Nary_Pred op="&amp;"/>
-<Exp_Comparison op=":">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:1:1" typref="449032716" value="historique"/>
-<Unary_Exp op="FIN">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:1:1" typref="449032716" value="historique"/>
-</Unary_Exp>
-</Exp_Comparison>
-</Nary_Pred>
-<Binary_Pred op="&amp;">
-<Nary_Pred op="&amp;"/>
-<Nary_Pred op="&amp;">
-<Nary_Pred op="&amp;"/>
-<Exp_Comparison op=":">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:2:2:1" typref="3603043417" value="dossiers"/>
-<Unary_Exp op="FIN">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:2:2:1" typref="3603043417" value="dossiers"/>
-</Unary_Exp>
-</Exp_Comparison>
-</Nary_Pred>
-</Binary_Pred>
-</Binary_Pred>
-</Nary_Pred>
-</Binary_Pred>
 </Nary_Pred>
 </Binary_Pred>
 </Nary_Pred>
@@ -1511,17 +1469,6 @@
 <Exp_Comparison op=":">
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:1" typref="2701647786" value="date_c"/>
 <Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:2:2" typref="3603043417" value="NAT"/>
-</Exp_Comparison>
-<Exp_Comparison op="&lt;">
-<Unary_Exp op="card" typref="2701647786">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:1:1" typref="449032716" value="historique"/>
-</Unary_Exp>
-<Binary_Exp op="*" typref="2701647786">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:2:1" typref="2701647786" value="max_op"/>
-<Unary_Exp op="card" typref="2701647786">
-<Id tag="D:\AtelierB\FileSystem\bdp\dossier.bxml:1:7:1:2:1:3:2:2:1" typref="3603043417" value="dossiers"/>
-</Unary_Exp>
-</Binary_Exp>
 </Exp_Comparison>
 </Nary_Pred>
 </Hypothesis>

@@ -88,7 +88,7 @@
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Id value='traitement_lib' typref='1902706489'/>
-<Binary_Exp op='--&gt;' typref='1583668704'>
+<Binary_Exp op='+-&gt;' typref='1583668704'>
 <Binary_Exp op='*' typref='4017641513'>
 <Id value='dates' typref='3603043417'/>
 <Id value='employes' typref='1585237810'/>
@@ -98,7 +98,7 @@
 </Exp_Comparison>
 <Exp_Comparison op=':'>
 <Id value='traitement_etat' typref='2125782260'/>
-<Binary_Exp op='--&gt;' typref='2066464527'>
+<Binary_Exp op='+-&gt;' typref='2066464527'>
 <Binary_Exp op='*' typref='4017641513'>
 <Id value='dates' typref='3603043417'/>
 <Id value='employes' typref='1585237810'/>
@@ -242,17 +242,6 @@
 <Exp_Comparison op=':'>
 <Id value='date_c' typref='2701647786'/>
 <Id value='NAT' typref='3603043417'/>
-</Exp_Comparison>
-<Exp_Comparison op='&lt;'>
-<Unary_Exp op='card' typref='2701647786'>
-<Id value='historique' typref='449032716'/>
-</Unary_Exp>
-<Binary_Exp op='*' typref='2701647786'>
-<Id value='max_op' typref='2701647786'/>
-<Unary_Exp op='card' typref='2701647786'>
-<Id value='dossiers' typref='3603043417'/>
-</Unary_Exp>
-</Binary_Exp>
 </Exp_Comparison>
 </Nary_Pred>
 </Precondition>
